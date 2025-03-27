@@ -1,0 +1,44 @@
+name: CI/CD to EC2
+
+# Trigger deployment only on push to master branch
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    name: CI/CD to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout latest code from master branch
+        uses: actions/checkout@v1
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: "18.x"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Deploy to EC2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          HOST: ${{ secrets.EC2_INSTANCE_DNS }}
+          USERNAME: ${{ secrets.EC2_USER }}
+          APP_PATH: ${{ secrets.EC2_TARGET_DIRECTORY }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" > key.pem
+          chmod 600 key.pem
+          ssh -o StrictHostKeyChecking=no -i key.pem $USERNAME@$HOST << EOF
+            cd $APP_PATH
+            git pull origin master
+            npm install
+            npm run build
+            pm2 restart portfolio
+          EOF
