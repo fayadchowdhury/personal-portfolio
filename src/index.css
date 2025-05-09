@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@theme {
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-neon-4: #2E0249;
+    --color-neon-3: #570A57;
+    --color-neon-2: #A91079;
+    --color-neon-1: #F806CC;
+}
+
+/* Default LOD (dark mode) and DOL (light mode) CSS for whole HTML and body tag */
+@layer base {
+    html {
+        @apply bg-white dark:bg-black text-black dark:text-white;
+    }
+    body {
+        @apply bg-white dark:bg-black text-black dark:text-white;
+    }
+}
