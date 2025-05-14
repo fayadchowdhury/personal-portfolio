@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -7,14 +8,70 @@
     --color-neon-3: #570A57;
     --color-neon-2: #A91079;
     --color-neon-1: #F806CC;
+    --font-mona-sans: "Mona Sans", sans-serif;
 }
 
 /* Default LOD (dark mode) and DOL (light mode) CSS for whole HTML and body tag */
 @layer base {
     html {
-        @apply bg-white dark:bg-black text-black dark:text-white;
+        @apply bg-white dark:bg-black text-black dark:text-white font-mona-sans;
     }
     body {
-        @apply bg-white dark:bg-black text-black dark:text-white;
+        @apply bg-white dark:bg-black text-black dark:text-white font-mona-sans;
+    }
+}
+
+/* ChatGPT animations */
+.tagline-carousel {
+    position: relative;
+    height: 4em; /* enough to fit your content */
+    overflow: hidden;
+}
+  
+.tagline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeSlide 16s infinite;
+    width: 100%;
+    display: flex;
+}
+  
+  /* Delay each one by a quarter of the cycle */
+.tagline:nth-child(1) {
+    animation-delay: 0s;
+}
+.tagline:nth-child(2) {
+    animation-delay: 4s;
+}
+.tagline:nth-child(3) {
+    animation-delay: 8s;
+}
+.tagline:nth-child(4) {
+    animation-delay: 12s;
+}
+  
+  /* Animation: fade in -> stay -> fade out */
+@keyframes fadeSlide {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    5% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    25% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    30% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 0;
     }
 }

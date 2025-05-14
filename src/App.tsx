@@ -1,3 +1,9 @@
+import Hero from "./components/Hero";
+
+// Figure out a better way to import data
+// data.json should be placed in src/data
+import data from "./data/data.json";
+
 function App() {
   return (
     // Navbar
@@ -6,9 +12,8 @@ function App() {
 
     // Main page
     <div>
-      <h1>Name</h1>
-      <h3>Tagline line 1</h3>
-      <h3>Tagline line 2</h3>
+      {/* Hero section */}
+      <Hero name={data.name} taglines={data.taglines} />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
         commodi atque voluptatum reiciendis rerum aut molestiae, ratione et modi
