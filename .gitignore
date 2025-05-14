@@ -25,3 +25,6 @@ dist-ssr
 
 # Ignore data.json
 data.json
+
+# Ignore assets
+assets/
