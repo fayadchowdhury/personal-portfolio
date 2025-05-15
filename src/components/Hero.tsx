@@ -4,8 +4,8 @@ interface Tagline {
 }
 
 interface HeroImage {
-  src?: string;
-  alt?: string;
+  src: string;
+  alt: string;
 }
 
 interface HeroProps {
