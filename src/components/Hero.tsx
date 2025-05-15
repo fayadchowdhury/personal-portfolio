@@ -3,12 +3,18 @@ interface Tagline {
   icon: string;
 }
 
+interface HeroImage {
+  src?: string;
+  alt?: string;
+}
+
 interface HeroProps {
   name: string;
   taglines: Tagline[];
+  heroImage?: HeroImage;
 }
 
-const Hero = ({ name, taglines }: HeroProps) => {
+const Hero = ({ name, taglines, heroImage }: HeroProps) => {
   return (
     <section id="hero" className="">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-md:mt-20 mt-7">
@@ -42,11 +48,13 @@ const Hero = ({ name, taglines }: HeroProps) => {
         </header>
         {/* Right side */}
         <div className="w-full flex items-center justify-center">
-          <img
-            src="src/assets/maintenance.svg"
-            alt="Background"
-            className="w-auto max-w-xs sm:max-w-sm md:max-w-md"
-          />
+          {heroImage && (
+            <img
+              src={heroImage.src}
+              alt={heroImage.alt}
+              className="w-auto max-w-xs sm:max-w-sm md:max-w-md"
+            />
+          )}
         </div>
       </div>
     </section>
