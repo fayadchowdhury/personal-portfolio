@@ -1,4 +1,5 @@
 import Hero from "./components/Hero";
+import Intro from "./components/Intro";
 
 // Figure out a better way to import data
 // data.json should be placed in src/data
@@ -13,13 +14,13 @@ function App() {
     // Main page
     <div>
       {/* Hero section */}
-      <Hero name={data.name} taglines={data.taglines} />
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
-        commodi atque voluptatum reiciendis rerum aut molestiae, ratione et modi
-        ducimus ut voluptatibus autem aperiam quia ipsum consequatur est
-        temporibus. Odio?
-      </p>
+      <Hero
+        name={data.name}
+        taglines={data.taglines}
+        heroImage={data.heroImage}
+      />
+      {/* Intro section */}
+      <Intro intro={data.intro} />
 
       <button>Button 1</button>
       <button>Button 2</button>
