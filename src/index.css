@@ -24,7 +24,7 @@
 /* ChatGPT animations */
 .tagline-carousel {
     position: relative;
-    height: 4em; /* enough to fit your content */
+    height: 6em; /* enough to fit your content */
     overflow: hidden;
 }
   
@@ -74,4 +74,16 @@
     100% {
       opacity: 0;
     }
+}
+
+@layer components {
+  .text-header {
+    @apply text-xl md:text-4xl lg:text-6xl;
+  }
+  .text-sub-header {
+    @apply text-lg md:text-2xl lg:text-4xl;
+  }
+  .text-content {
+    @apply text-base md:text-xl lg:text-2xl;
+  }
 }

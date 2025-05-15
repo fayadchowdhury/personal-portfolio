@@ -16,7 +16,8 @@ const Hero = ({ name, taglines }: HeroProps) => {
         <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
           <div className="flex flex-col gap-2">
             {/* Name */}
-            <h1 className="text-xl md:text-3xl lg:text-5xl font-extrabold max-md:text-center">
+            {/* <h1 className="text-xl md:text-3xl lg:text-5xl font-extrabold max-md:text-center"> */}
+            <h1 className="text-header font-extrabold max-md:text-center">
               {name}.
             </h1>
             {/* Taglines */}
@@ -26,7 +27,7 @@ const Hero = ({ name, taglines }: HeroProps) => {
                   key={index}
                   className="flex gap-2 max-md:items-center max-md:justify-center tagline"
                 >
-                  <p className="max-md:text-center text-lg md:text-xl lg:text-3xl">
+                  <p className="text-sub-header max-md:text-center">
                     {tagline.text}
                   </p>
                   <img
