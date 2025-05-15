@@ -1,9 +1,10 @@
-import Hero from "./components/Hero";
-import Intro from "./components/Intro";
+import Hero from "./sections/Hero";
+import Intro from "./sections/Intro";
 
 // Figure out a better way to import data
 // data.json should be placed in src/data
 import data from "./data/data.json";
+import CallToAction from "./sections/CallToAction";
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
       {/* Intro section */}
       <Intro intro={data.intro} />
 
-      <button>Button 1</button>
-      <button>Button 2</button>
+      {/* CTAs section */}
+      <CallToAction />
 
       <h1>Work</h1>
       <ul>
