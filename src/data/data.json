@@ -3,23 +3,23 @@
     "taglines": [
         {
             "text": "Distilling data into decisions",
-            "icon": "src/assets/hero-tagline-icons/data.svg"            
+            "icon": "/hero-tagline-icons/data.svg"            
         },
         {
             "text": "Connecting compute in clusters",
-            "icon": "src/assets/hero-tagline-icons/compute.svg"            
+            "icon": "/hero-tagline-icons/compute.svg"            
         },
         {
             "text": "Igniting ideas into impact",
-            "icon": "src/assets/hero-tagline-icons/ideas.svg"            
+            "icon": "/hero-tagline-icons/ideas.svg"            
         },
         {
             "text": "Architecting AI into amazement",
-            "icon": "src/assets/hero-tagline-icons/ai.svg"            
+            "icon": "/hero-tagline-icons/ai.svg"            
         }
     ],
     "heroImage": {
-        "src": "src/assets/maintenance.svg",
+        "src": "/maintenance.svg",
         "alt": "This is where the hero image is meant to be",
         "width": 800,
         "height": 800
