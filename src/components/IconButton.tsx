@@ -9,7 +9,7 @@ interface IconButtonProps {
 const IconButton = ({ buttonText, Icon, onButtonClick }: IconButtonProps) => {
   return (
     <button
-      className="flex grid-cols-2 py-2 px-4 rounded-lg gap-2 border-1 border-white hover:bg-white  text-white hover:text-black"
+      className="flex grid-cols-2 py-2 px-4 rounded-lg gap-2 border-1 border-black dark:border-white hover:bg-black dark:hover:bg-white text-black dark:text-white hover:text-white dark:hover:text-black"
       onClick={onButtonClick}
     >
       <span className="text-content">{buttonText}</span>
