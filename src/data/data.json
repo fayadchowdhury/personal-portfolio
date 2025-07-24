@@ -64,5 +64,9 @@
                 "Contributed to MyBL super app's PHP to Node.js migration, implementing microservices with RabbitMQ and Docker to improve system robustness and scalability"
             ]
         }
-    ]
+    ],
+    "contact": {
+        "title": "Get in touch",
+        "description": "I'd love to hear from you!"
+    }
 }

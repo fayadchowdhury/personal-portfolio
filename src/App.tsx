@@ -7,6 +7,7 @@ import data from "./data/data.json";
 import CallToAction from "./sections/CallToAction";
 import Work from "./sections/Work";
 import SectionTitle from "./components/SectionTitle";
+import Contact from "./sections/Contact";
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
       <SectionTitle title="Experience" />
       <Work workItems={data.work} />
 
-      <h1>Projects</h1>
+      {/* <h1>Projects</h1>
       <ul>
         <li>Project 1</li>
         <li>Project 2</li>
@@ -58,9 +59,13 @@ function App() {
         <li>Testimonial 1</li>
         <li>Testimonial 2</li>
         <li>Testimonial 3</li>
-      </ul>
+      </ul> */}
 
-      <h1>Contact</h1>
+      {/* <h1>Contact</h1> */}
+      <Contact
+        contactTitle={data.contact.title}
+        contactDescription={data.contact.description}
+      />
     </div>
 
     // Footer
