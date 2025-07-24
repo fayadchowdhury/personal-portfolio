@@ -3,7 +3,9 @@
 
 @theme {
     --color-black: #000000;
+    --color-mid-black: #141414;
     --color-white: #FFFFFF;
+    --color-mid-white: #F7F7F7;
     --color-neon-4: #2E0249;
     --color-neon-3: #570A57;
     --color-neon-2: #A91079;

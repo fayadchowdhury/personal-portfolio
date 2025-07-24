@@ -5,6 +5,8 @@ import Intro from "./sections/Intro";
 // data.json should be placed in src/data
 import data from "./data/data.json";
 import CallToAction from "./sections/CallToAction";
+import Work from "./sections/Work";
+import SectionTitle from "./components/SectionTitle";
 
 function App() {
   return (
@@ -26,12 +28,9 @@ function App() {
       {/* CTAs section */}
       <CallToAction />
 
-      <h1>Work</h1>
-      <ul>
-        <li>Work 1</li>
-        <li>Work 2</li>
-        <li>Work 3</li>
-      </ul>
+      {/* Work section */}
+      <SectionTitle title="Experience" />
+      <Work workItems={data.work} />
 
       <h1>Projects</h1>
       <ul>
