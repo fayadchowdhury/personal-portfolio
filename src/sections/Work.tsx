@@ -15,8 +15,8 @@ const Work = ({ workItems }: WorkProps) => {
   return (
     <section id="work">
       {/* <div className="grid grid-cols-1 md:grid-cols-5"> */}
-      {workItems.map((item, _) => (
-        <div className="grid grid-cols-1 md:grid-cols-5">
+      {workItems.map((item, index) => (
+        <div key={index} className="grid grid-cols-1 md:grid-cols-5">
           <div className="md:col-span-1 hidden md:block"></div>
           <DescriptionCard
             iconPath={item.iconPath}

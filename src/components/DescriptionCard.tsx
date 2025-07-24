@@ -23,14 +23,14 @@ const DescriptionCard = ({
         {iconPath && <img src={iconPath} alt="Icon" className="w-30 h-30" />}
       </div>
       <div className="flex flex-col justify-center col-span-2">
-        <h1 className="text-sub-header font-bold text-start mt-3 mb-3">
+        <h1 className="text-sub-header font-semibold text-start mt-3 mb-3">
           {title}
         </h1>
-        <div className="grid grid-cols-2 text-content">
+        <div className="grid grid-cols-2 text-content py-3">
           {subtitle && <h3>{subtitle}</h3>}
           {period && <h3 className="text-end">{period}</h3>}
         </div>
-        <p className="text-start mb-3">{description}</p>
+        <p className="text-start mb-3 py-3">{description}</p>
         {items && (
           <ul className="list-disc list-inside mb-3">
             {items.map((item, index) => (
