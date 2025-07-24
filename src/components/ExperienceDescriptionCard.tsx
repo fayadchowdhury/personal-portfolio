@@ -1,4 +1,4 @@
-interface DescriptionCardProps {
+interface ExperienceDescriptionCardProps {
   iconPath?: string;
   title: string;
   subtitle?: string;
@@ -8,7 +8,7 @@ interface DescriptionCardProps {
   children?: React.ReactNode[];
 }
 
-const DescriptionCard = ({
+const ExperienceDescriptionCard = ({
   iconPath,
   title,
   subtitle,
@@ -16,7 +16,7 @@ const DescriptionCard = ({
   description,
   items,
   children,
-}: DescriptionCardProps) => {
+}: ExperienceDescriptionCardProps) => {
   return (
     <div className="col-span-5 md:col-span-4 grid grid-cols-3 gap-2 p-5 m-5 rounded-lg border-1 border-gray-300 dark:border-gray-800 bg-mid-white dark:bg-mid-black">
       <div className="flex items-center justify-center col-span-1">
@@ -44,4 +44,4 @@ const DescriptionCard = ({
   );
 };
 
-export default DescriptionCard;
+export default ExperienceDescriptionCard;
