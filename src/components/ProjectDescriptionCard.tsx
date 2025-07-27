@@ -1,0 +1,73 @@
+interface ProjectDescriptionCardProps {
+  picPath?: string;
+  title: string;
+  subtitle?: string;
+  period?: string;
+  description?: string;
+  items?: string[];
+  featured?: boolean;
+  children?: React.ReactNode[];
+}
+
+const ProjectDescriptionCard = ({
+  picPath,
+  title,
+  subtitle,
+  period,
+  description,
+  items,
+  featured,
+  children,
+}: ProjectDescriptionCardProps) => {
+  return (
+    <div className="flex flex-col gap-2 pb-5 m-5 rounded-lg border-1 border-gray-300 dark:border-gray-800 bg-mid-white dark:bg-mid-black">
+      <div
+        className={`${
+          featured ? "h-150 " : "h-40 "
+        } w-full overflow-hidden rounded-t-lg`}
+      >
+        {picPath && (
+          <img
+            src={picPath}
+            alt="Icon"
+            className="w-full h-full object-cover object-top"
+          />
+        )}
+      </div>
+      <div className="flex flex-col justify-center p-5">
+        <h1
+          className={`${
+            featured ? "text-sub-header" : "text-sub-header-special"
+          } font-semibold text-start mt-3 mb-3`}
+        >
+          {title}
+        </h1>
+        <div
+          className={`grid grid-cols-2 ${
+            featured ? "text-content" : "text-content-special"
+          } py-3`}
+        >
+          {subtitle && <h3>{subtitle}</h3>}
+          {period && <h3 className="text-end">{period}</h3>}
+        </div>
+        <p
+          className={`${
+            featured ? "text-content" : "text-sm"
+          } text-start mb-3 py-3`}
+        >
+          {description}
+        </p>
+        {items && featured && (
+          <ul className="list-disc list-inside mb-3">
+            {items.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        )}
+        {children}
+      </div>
+    </div>
+  );
+};
+
+export default ProjectDescriptionCard;

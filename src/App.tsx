@@ -8,6 +8,7 @@ import CallToAction from "./sections/CallToAction";
 import Work from "./sections/Work";
 import SectionTitle from "./components/SectionTitle";
 import Contact from "./sections/Contact";
+import Projects from "./sections/Projects";
 
 function App() {
   return (
@@ -33,15 +34,11 @@ function App() {
       <SectionTitle title="Experience" />
       <Work workItems={data.work} />
 
-      {/* <h1>Projects</h1>
-      <ul>
-        <li>Project 1</li>
-        <li>Project 2</li>
-        <li>Project 3</li>
-        <li>Project 4</li>
-      </ul>
+      {/* Projects section */}
+      <SectionTitle title="Projects" />
+      <Projects projects={data.projects} />
 
-      <h1>Skills</h1>
+      {/*<h1>Skills</h1>
       <ul>
         <li>Skill 1</li>
         <li>Skill 2</li>
@@ -61,7 +58,7 @@ function App() {
         <li>Testimonial 3</li>
       </ul> */}
 
-      {/* <h1>Contact</h1> */}
+      {/* Contact section */}
       <Contact
         contactTitle={data.contact.title}
         contactDescription={data.contact.description}
