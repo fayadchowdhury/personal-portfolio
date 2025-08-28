@@ -68,5 +68,50 @@
     "contact": {
         "title": "Get in touch",
         "description": "I'd love to hear from you!"
-    }
+    },
+    "projects": [
+        {
+            "picPath": "/project-pics/homelab-cluster.png",
+            "title": "Homelab Cluster",
+            "subtitle": "A cluster made of micro computers and a Raspberry Pi",
+            "period": "2025 - Present",
+            "description": "Setting up a Proxmox cluster on micro computers and a Raspberry Pi to run a variety of workloads primarily on Kubernetes",
+            "items": [
+                "6 Kubernetes nodes with 1 control plane node and 5 worker nodes",
+                "Pi-Hole as an ad-blocker and local DNS",
+                "Helm charts for easy deployment of applications",
+                "Easy version control with Git and Github"
+            ],
+            "featured": true
+        },
+        {
+            "picPath": "/project-pics/semantic-book-recommender.png",
+            "title": "Semantic Book Recommender",
+            "subtitle": "Harness LLMs to receive tailored book recommendations",
+            "period": "2025 - 2025",
+            "description": "Generate book receommendations using a vector database (Chroma) to perform similarity search on embedded book dsecriptions, filtered on the categories of fiction and/or non-fiction and the tone of the description",
+            "items": [
+                "LangChain and OpenAI for text chunking and embedding",
+                "Chroma as a persistent vector store",
+                "Zero-shot classifier for category prediction",
+                "Fine-tuned classifier for sentiment analysis",
+                "Gradio UI for quick demos",
+                "Well-documented, manageable monolithic app"
+            ],
+            "featured": true
+        },
+        {
+            "picPath": "/project-pics/spark-docker.png",
+            "title": "Custom Spark Docker Images",
+            "subtitle": "To run SparkOnK8s and as regular master-worker container deployments",
+            "period": "2025 - Present",
+            "description": "Building custom Docker images for SparkOnK8s and regular Spark master-worker deployments on homelab cluster",
+            "items": [
+                "Custom JARs to connect with Minio",
+                "Optimized Dockerfiles for SparkOnK8s",
+                "Docker Compose to set up 1 master and 2 workers"
+            ],
+            "featured": false
+        }
+    ]
 }
