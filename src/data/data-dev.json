@@ -67,7 +67,8 @@
     ],
     "contact": {
         "title": "Get in touch",
-        "description": "I'd love to hear from you!"
+        "description": "I'd love to hear from you!",
+        "formPostUrl": "http://localhost:6996/api/mail/sendContactResponseEmail"
     },
     "projects": [
         {

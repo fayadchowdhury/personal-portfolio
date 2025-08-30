@@ -1,0 +1,118 @@
+{
+    "name": "Ahmad Al Fayad Chowdhury",
+    "taglines": [
+        {
+            "text": "Distilling data into decisions",
+            "icon": "/hero-tagline-icons/data.svg"            
+        },
+        {
+            "text": "Connecting compute in clusters",
+            "icon": "/hero-tagline-icons/compute.svg"            
+        },
+        {
+            "text": "Igniting ideas into impact",
+            "icon": "/hero-tagline-icons/ideas.svg"            
+        },
+        {
+            "text": "Architecting AI into amazement",
+            "icon": "/hero-tagline-icons/ai.svg"            
+        }
+    ],
+    "heroImage": {
+        "src": "/maintenance.svg",
+        "alt": "This is where the hero image is meant to be",
+        "width": 800,
+        "height": 800
+    },
+    "intro": "Hi, I’m Fayad — a data-focused software engineer exploring the intersections of machine learning, systems, and homelabbing.",
+    "work": [
+        {
+            "iconPath": "/work-icons/sfu.svg",
+            "title": "Simon Fraser University",
+            "subtitle": "Graduate Teaching Assistant",
+            "period": "Jan 2024 - Apr 2025",
+            "description": "Supported and mentored nearly 400+ undergraduate and graduate students across three computing science courses, covering the basics of programming to cloud computing and big data systems",
+            "items": [
+                "Assisted 113 undergraduate students with Python programming concepts for CMPT 120, primarily focusing on abstract data structures and debugging and algorithmic thinking to tackle assignments and projects",
+                "Conducted lab sessions to teach 235 students core object oriented programming concepts, including encapsulation, abstraction, inheritance and polymorphism, in C++ for CMPT 125",
+                "Conducted CMPT 732 lab sessions for 76 graduate students covering the core concepts of programming for big data processing systems in Apache Spark (mainly PySpark) and the common elements of the big data ecosystem (Airflow, CassandraDB, Kafka)",
+                "Provided technical support on adapting PySpark workloads to AWS cloud including configuring IAM for secure access and setting up S3 as a staging data zone, EMR to perform Spark ETL jobs, Redshift as a relational data store and QuickSight to visualize data",
+                "Contributed to clarifying and solidifying understanding of theoretical concepts, going beyond the curriculum to impart interesting knowledge, over online office hours"
+            ]
+        },
+        {
+            "iconPath": "/work-icons/klue.svg",
+            "title": "Klue Labs Inc.",
+            "subtitle": "Data Analyst",
+            "period": "May 2024 - Aug 2024",
+            "description": "Constructed scalable, production-grade data pipelines to support GenAI use cases in technical and non-technical teams and enabled strategic decision-making",
+            "items": [
+                "Developed and unit-tested a modular PDF parsing and embedding pipeline using GCP Cloud Functions and BigQuery for ingestion into RAG system, saving 4+ hours of human effort weekly",
+                "Collaborated on developing unit-tested Python workflows to process 500+ unstructured client content requests, storing results in BigQuery, to integrate with vendor intelligence APIs",
+                "Built BigQuery – LookerStudio dashboard to visualize effect of modifying intel filters, enabling faster decisions on refinement rollouts"
+            ]
+        },
+        {
+            "iconPath": "/work-icons/banglalink.svg",
+            "title": "Banglalink Digital Communications Ltd.",
+            "subtitle": "Data Engineer",
+            "period": "Apr 2022 - Aug 2023",
+            "description": "Identified and automated high-impact manual insight extraction workflows, enabling data-driven decision-making across the organization",
+            "items": [
+                "Designed and unit-tested an ETL pipeline using Selenium scrape market share data from Meta Actionable Insights, clean, transform and load the data into an on-prem MySQL cluster using Pandas",
+                "Collaborated with marketing teams to build PowerBI dashboards aggregating 100k+ data points from the MySQL databases to surface regional insights, enabling strategic decisions leading to 13% growth",
+                "Contributed to MyBL super app's PHP to Node.js migration, implementing microservices with RabbitMQ and Docker to improve system robustness and scalability"
+            ]
+        }
+    ],
+    "contact": {
+        "title": "Get in touch",
+        "description": "I'd love to hear from you!",
+        "formPostUrl": "http://fayadchowdhury.com/api/mail/sendContactResponseEmail"
+    },
+    "projects": [
+        {
+            "picPath": "/project-pics/homelab-cluster.png",
+            "title": "Homelab Cluster",
+            "subtitle": "A cluster made of micro computers and a Raspberry Pi",
+            "period": "2025 - Present",
+            "description": "Setting up a Proxmox cluster on micro computers and a Raspberry Pi to run a variety of workloads primarily on Kubernetes",
+            "items": [
+                "6 Kubernetes nodes with 1 control plane node and 5 worker nodes",
+                "Pi-Hole as an ad-blocker and local DNS",
+                "Helm charts for easy deployment of applications",
+                "Easy version control with Git and Github"
+            ],
+            "featured": true
+        },
+        {
+            "picPath": "/project-pics/semantic-book-recommender.png",
+            "title": "Semantic Book Recommender",
+            "subtitle": "Harness LLMs to receive tailored book recommendations",
+            "period": "2025 - 2025",
+            "description": "Generate book receommendations using a vector database (Chroma) to perform similarity search on embedded book dsecriptions, filtered on the categories of fiction and/or non-fiction and the tone of the description",
+            "items": [
+                "LangChain and OpenAI for text chunking and embedding",
+                "Chroma as a persistent vector store",
+                "Zero-shot classifier for category prediction",
+                "Fine-tuned classifier for sentiment analysis",
+                "Gradio UI for quick demos",
+                "Well-documented, manageable monolithic app"
+            ],
+            "featured": true
+        },
+        {
+            "picPath": "/project-pics/spark-docker.png",
+            "title": "Custom Spark Docker Images",
+            "subtitle": "To run SparkOnK8s and as regular master-worker container deployments",
+            "period": "2025 - Present",
+            "description": "Building custom Docker images for SparkOnK8s and regular Spark master-worker deployments on homelab cluster",
+            "items": [
+                "Custom JARs to connect with Minio",
+                "Optimized Dockerfiles for SparkOnK8s",
+                "Docker Compose to set up 1 master and 2 workers"
+            ],
+            "featured": false
+        }
+    ]
+}
