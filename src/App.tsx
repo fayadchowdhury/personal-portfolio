@@ -3,7 +3,7 @@ import Intro from "./sections/Intro";
 
 // Figure out a better way to import data
 // data.json should be placed in src/data
-import data from "./data/data.json";
+import data from "./data";
 import CallToAction from "./sections/CallToAction";
 import Work from "./sections/Work";
 import SectionTitle from "./components/SectionTitle";
@@ -62,6 +62,7 @@ function App() {
       <Contact
         contactTitle={data.contact.title}
         contactDescription={data.contact.description}
+        contactFormPostUrl={data.contact.formPostUrl}
       />
     </div>
 

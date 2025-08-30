@@ -1,10 +1,12 @@
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 
 interface ContactFormProps {
   contactTitle: string;
   contactDescription: string;
+  contactFormPostUrl: string;
 }
 
 const schema = z.object({
@@ -15,31 +17,60 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-const Contact = ({ contactTitle, contactDescription }: ContactFormProps) => {
+const Contact = ({
+  contactTitle,
+  contactDescription,
+  contactFormPostUrl,
+}: ContactFormProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid }, // Use isValid to check if the form is valid
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const message = {
-    name: "",
-    email: "",
-    message: "",
-  };
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionMessage, setSubmissionMessage] = useState<string | null>(
+    null
+  );
 
-  const handleFormSubmit = (data: FieldValues) => {
+  const handleFormSubmit = async (data: FieldValues) => {
     // Access the values of the form inputs using the data parameter and the registered names
-    if (data.name) {
-      message.name = data.name;
+
+    setIsSubmitting(true);
+    setSubmissionMessage(null);
+
+    const message = {
+      name: data.name ?? "",
+      email: data.email ?? "",
+      message: data.message ?? "",
+    };
+
+    // Actually send the message as a JSON body
+    try {
+      const response = await fetch(contactFormPostUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(message),
+      });
+      if (!response.ok) {
+        setSubmissionMessage("Failed to send message");
+        setIsSubmitting(false);
+      } else {
+        setSubmissionMessage("Message sent successfully!");
+        setTimeout(() => {
+          setSubmissionMessage(null);
+        }, 3000);
+        setIsSubmitting(false);
+      }
+    } catch (err) {
+      setSubmissionMessage("Failed to send message");
+      setTimeout(() => {
+        setSubmissionMessage(null);
+      }, 3000);
+      setIsSubmitting(false);
     }
-    if (data.email) {
-      message.email = data.email;
-    }
-    if (data.message) {
-      message.message = data.message;
-    }
-    console.log(message);
   };
 
   return (
@@ -85,11 +116,34 @@ const Contact = ({ contactTitle, contactDescription }: ContactFormProps) => {
             <p className="text-danger">{errors.message.message}</p>
           )}
           <button
-            disabled={!isValid}
-            className="dark:bg-mid-white bg-mid-black dark:text-black text-white p-2 rounded-lg disabled:bg-red-400 disabled:text-black disabled:cursor-not-allowed"
+            disabled={!isValid || isSubmitting}
+            className={`
+              p-2 rounded-lg 
+              ${isSubmitting ? "bg-gray-400 text-black" : ""}
+            ${
+              submissionMessage === "Failed to send message"
+                ? "bg-red-500 text-white"
+                : ""
+            }
+            ${
+              submissionMessage === "Message sent successfully!"
+                ? "bg-green-500 text-white"
+                : ""
+            }
+            ${
+              !isSubmitting && !submissionMessage
+                ? "dark:bg-mid-white bg-mid-black dark:text-black text-white"
+                : ""
+            }
+            disabled:cursor-not-allowed
+            `}
             type="submit"
           >
-            {isValid
+            {isSubmitting
+              ? "Sending..."
+              : submissionMessage
+              ? submissionMessage
+              : isValid
               ? "Send Message"
               : "Please fill out the form correctly and hit 'Send Message'"}
           </button>
