@@ -1,7 +1,7 @@
 import data_dev from "./data-dev.json";
 import data_prod from "./data-prod.json"
 
-const mode: string = process.env.ENV || "dev-data";
+const mode: string = import.meta.env.VITE_ENV;
 let data: typeof data_dev | typeof data_prod;
 
 if (mode === "dev-json") {
@@ -11,5 +11,7 @@ if (mode === "dev-json") {
 } else {
     data = data_dev;
 }
+
+console.log(`Using data mode: ${mode}`);
 
 export default data;

@@ -68,7 +68,7 @@
     "contact": {
         "title": "Get in touch",
         "description": "I'd love to hear from you!",
-        "formPostUrl": "http://fayadchowdhury.com/api/mail/sendContactResponseEmail"
+        "formPostUrl": "https://fayadchowdhury.com/api/mail/sendContactResponseEmail"
     },
     "projects": [
         {

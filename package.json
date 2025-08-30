@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "ENV=dev-json vite",
-    "build": "ENV=prod-json tsc -b && ENV=prod-json vite build",
-    "dev-api": "ENV=dev-api vite",
-    "build-api": "ENV=prod-api tsc -b && ENV=prod-api vite build",
+    "dev": "VITE_ENV=dev-json vite",
+    "build": "VITE_ENV=prod-json tsc -b && VITE_ENV=prod-json vite build",
+    "dev-api": "VITE_ENV=dev-api vite",
+    "build-api": "VITE_ENV=prod-api tsc -b && VITE_ENV=prod-api vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
