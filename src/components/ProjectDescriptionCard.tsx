@@ -20,7 +20,7 @@ const ProjectDescriptionCard = ({
   children,
 }: ProjectDescriptionCardProps) => {
   return (
-    <div className="flex flex-col gap-2 pb-5 m-5 rounded-lg border-1 border-gray-300 dark:border-gray-800 bg-mid-white dark:bg-mid-black">
+    <div className="flex flex-col gap-2 pb-5 m-5 rounded-lg border-1 border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black">
       <div
         className={`${
           featured ? "h-150 " : "h-40 "
