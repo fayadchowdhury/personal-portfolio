@@ -2,6 +2,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
+import FormInput from "../components/FormInput";
 
 interface ContactFormProps {
   contactTitle: string;
@@ -90,31 +91,27 @@ const Contact = ({
           className="flex flex-col space-y-4"
           onSubmit={handleSubmit(handleFormSubmit)}
         >
-          <input
+          <FormInput
             type="text"
             placeholder="Your Name"
-            className="border-1 border-gray-300 dark:border-gray-800 p-2 rounded-lg"
-            {...register("name")}
+            registration={register("name")}
+            error={errors.name}
+            textarea={false}
           />
-          {errors.name && <p className="text-danger">{errors.name.message}</p>}
-          <input
+          <FormInput
             type="email"
             placeholder="Your Email"
-            className="border-1 border-gray-300 dark:border-gray-800 p-2 rounded-lg"
-            {...register("email")}
+            registration={register("email")}
+            error={errors.email}
+            textarea={false}
           />
-          {errors.email && (
-            <p className="text-danger">{errors.email.message}</p>
-          )}
-          <textarea
+          <FormInput
             rows={4}
             placeholder="Your Message"
-            className="border-1 border-gray-300 dark:border-gray-800 p-2 rounded-lg"
-            {...register("message")}
+            registration={register("message")}
+            error={errors.message}
+            textarea={true}
           />
-          {errors.message && (
-            <p className="text-danger">{errors.message.message}</p>
-          )}
           <button
             disabled={!isValid || isSubmitting}
             className={`
