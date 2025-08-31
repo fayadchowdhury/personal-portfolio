@@ -120,22 +120,27 @@ const Contact = ({
             className={`
               p-2 rounded-lg
               ${isSubmitting ? "bg-gray-400 text-black" : ""}
-            ${
-              submissionMessage === "Failed to send message"
-                ? "bg-red-500 text-white"
-                : ""
-            }
-            ${
-              submissionMessage === "Message sent successfully!"
-                ? "bg-green-500 text-white"
-                : ""
-            }
-            ${
-              !isSubmitting && !submissionMessage
-                ? "dark:bg-mid-white bg-mid-black dark:text-black text-white"
-                : ""
-            }
-            disabled:cursor-not-allowed
+              ${
+                submissionMessage === "Failed to send message"
+                  ? "dark:bg-fail-bg-dark bg-fail-bg-light text-black"
+                  : ""
+              }
+              ${
+                submissionMessage === "Message sent successfully!"
+                  ? "dark:bg-success-bg-dark bg-success-bg-lighttext-white"
+                  : ""
+              }
+              ${
+                !isSubmitting && !submissionMessage && isValid
+                  ? "dark:bg-mid-white bg-mid-black dark:text-black text-white"
+                  : ""
+              }
+              ${
+                !isSubmitting && !submissionMessage && !isValid
+                  ? "dark:bg-disabled-bg-dark bg-disabled-bg-light dark:text-black text-white"
+                  : ""
+              }
+              disabled:cursor-not-allowed
             `}
             type="submit"
           >
