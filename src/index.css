@@ -6,6 +6,14 @@
     --color-mid-black: #141414;
     --color-white: #FFFFFF;
     --color-mid-white: #F7F7F7;
+    --color-gray-border-dark: #1e2939;
+    --color-gray-border-light: #d1d5dc;
+    --color-disabled-bg-light: #4e4948;
+    --color-disabled-bg-dark: #4e4948;
+    --color-fail-bg-light: #f7363d;
+    --color-fail-bg-dark: #fb2c36;
+    --color-success-bg-light: #2ec637;
+    --color-success-bg-dark: #2ec637;
     --color-neon-4: #2E0249;
     --color-neon-3: #570A57;
     --color-neon-2: #A91079;
