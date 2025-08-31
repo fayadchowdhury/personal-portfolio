@@ -1,3 +1,5 @@
+import HeroModel from "../components/HeroModel";
+
 interface Tagline {
   text: string;
   icon: string;
@@ -48,12 +50,14 @@ const Hero = ({ name, taglines, heroImage }: HeroProps) => {
         </header>
         {/* Right side */}
         <div className="w-full flex items-center justify-center">
-          {heroImage && (
+          {heroImage ? (
             <img
               src={heroImage.src}
               alt={heroImage.alt}
               className="w-auto max-w-xs sm:max-w-sm md:max-w-md"
             />
+          ) : (
+            <HeroModel />
           )}
         </div>
       </div>
