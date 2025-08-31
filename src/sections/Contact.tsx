@@ -118,7 +118,7 @@ const Contact = ({
           <button
             disabled={!isValid || isSubmitting}
             className={`
-              p-2 rounded-lg 
+              p-2 rounded-lg
               ${isSubmitting ? "bg-gray-400 text-black" : ""}
             ${
               submissionMessage === "Failed to send message"
@@ -143,9 +143,7 @@ const Contact = ({
               ? "Sending..."
               : submissionMessage
               ? submissionMessage
-              : isValid
-              ? "Send Message"
-              : "Please fill out the form correctly and hit 'Send Message'"}
+              : "Send Message"}
           </button>
         </form>
       </div>
