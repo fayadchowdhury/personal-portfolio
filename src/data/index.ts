@@ -12,6 +12,4 @@ if (mode === "dev-json") {
     data = data_dev;
 }
 
-console.log(`Using data mode: ${mode}`);
-
 export default data;
