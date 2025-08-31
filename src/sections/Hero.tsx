@@ -36,11 +36,11 @@ const Hero = ({ name, taglines, heroImage }: HeroProps) => {
                   <p className="text-sub-header max-md:text-center">
                     {tagline.text}
                   </p>
-                  <img
+                  {/* <img
                     src={tagline.icon}
                     alt={tagline.text}
                     className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 justify-center"
-                  />
+                  /> */}
                 </div>
               ))}
             </div>
