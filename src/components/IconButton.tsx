@@ -1,8 +1,8 @@
-import { ElementType } from "react";
+import { ComponentType } from "react";
 
 interface IconButtonProps {
   buttonText: string;
-  Icon?: ElementType;
+  Icon?: ComponentType<React.SVGProps<SVGSVGElement>>;
   onButtonClick: () => void;
 }
 
