@@ -22,7 +22,7 @@ function App() {
       <Hero
         name={data.name}
         taglines={data.taglines}
-        heroImage={data.heroImage}
+        // heroImage={data.heroImage}
       />
       {/* Intro section */}
       <Intro intro={data.intro} />
