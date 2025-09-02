@@ -9,10 +9,10 @@ interface NavBarLinks {
 
 const NavBar = ({ links }: NavBarLinks) => {
   return (
-    <header className="">
+    <header id="navbar">
       <div className="fixed top-0 w-full md:my-5 max-md:my-10 z-10 grid grid-cols-3 justify-between">
         <div className="flex items-center justify-start max-md:mx-5 mx-10">
-          <a href="#" className="flex text-sub-header-special">
+          <a href="#hero" className="flex text-sub-header-special">
             fayadchowdhury
           </a>
         </div>

@@ -75,7 +75,10 @@ const Contact = ({
   };
 
   return (
-    <div className="max-md:flex max-md:flex-col grid grid-cols-2 justify-center md:w-full w-screen md:px-20 px-5 md:mt-30 mt-10 md:mb-15 mb-5">
+    <div
+      id="contact"
+      className="max-md:flex max-md:flex-col grid grid-cols-2 justify-center md:w-full w-screen md:px-20 px-5 md:mt-30 mt-10 md:mb-15 mb-5"
+    >
       <div className="flex flex-col gap-2 max-md:mb-3">
         <h1 className="text-header font-extrabold max-md:text-center">
           {contactTitle}
