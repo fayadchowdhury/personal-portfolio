@@ -1,6 +1,3 @@
-import React from "react";
-import IconButton from "../components/IconButton";
-
 interface NavBarLink {
   label: string;
   url: string;
