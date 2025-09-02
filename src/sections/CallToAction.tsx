@@ -1,4 +1,4 @@
-import IconButton from "../components/IconButton";
+import IconAnchor from "../components/IconAnchor";
 import {
   BeakerIcon,
   EnvelopeIcon,
@@ -11,28 +11,22 @@ const CallToAction = () => {
       {/* <div className="flex flex-col items-center justify-center"> */}
       <div className="flex flex-col items-center justify-center">
         <div className="mb-10 max-sm:mb-15">
-          <IconButton
+          <IconAnchor
             buttonText="GET IN TOUCH"
             Icon={EnvelopeIcon} // Replace with an actual icon component if needed
-            onButtonClick={() => {
-              console.log("Contact Me button clicked");
-            }}
+            href="#contact"
           />
         </div>
         <div className="flex grid-cols-3 gap-10 max-sm:gap-3 w-full py-3 px-3 md:py-10 md:px-10 items-center justify-center">
-          <IconButton
+          <IconAnchor
             buttonText="EXPERIENCE"
             Icon={BriefcaseIcon} // Replace with an actual icon component if needed
-            onButtonClick={() => {
-              console.log("Experience button clicked");
-            }}
+            href="#work"
           />
-          <IconButton
+          <IconAnchor
             buttonText="PROJECTS"
             Icon={BeakerIcon} // Replace with an actual icon component if needed
-            onButtonClick={() => {
-              console.log("Projects button clicked");
-            }}
+            href="#projects"
           />
         </div>
       </div>
