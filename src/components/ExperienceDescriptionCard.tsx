@@ -1,3 +1,5 @@
+import { useMediaQuery } from "react-responsive";
+
 interface ExperienceDescriptionCardProps {
   iconPath?: string;
   title: string;
@@ -17,6 +19,9 @@ const ExperienceDescriptionCard = ({
   items,
   children,
 }: ExperienceDescriptionCardProps) => {
+  const isMobileSmall = useMediaQuery({ maxWidth: 770 });
+  const isMobileMedium = useMediaQuery({ maxWidth: 1024 });
+
   return (
     <div className="col-span-5 md:col-span-4 grid grid-cols-3 gap-2 p-5 m-5 rounded-lg border-1 border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black">
       <div className="flex items-center justify-center col-span-1">
@@ -31,7 +36,7 @@ const ExperienceDescriptionCard = ({
           {period && <h3 className="text-end">{period}</h3>}
         </div>
         <p className="text-start mb-3 py-3">{description}</p>
-        {items && (
+        {!isMobileSmall && !isMobileMedium && items && (
           <ul className="list-disc list-inside mb-3">
             {items.map((item, index) => (
               <li key={index}>{item}</li>

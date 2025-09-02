@@ -1,3 +1,5 @@
+import { useMediaQuery } from "react-responsive";
+
 interface ProjectDescriptionCardProps {
   picPath?: string;
   title: string;
@@ -19,6 +21,8 @@ const ProjectDescriptionCard = ({
   featured,
   children,
 }: ProjectDescriptionCardProps) => {
+  const isMobileSmall = useMediaQuery({ maxWidth: 770 });
+  const isMobileMedium = useMediaQuery({ maxWidth: 1024 });
   return (
     <div className="flex flex-col gap-2 pb-5 m-5 rounded-lg border-1 border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black">
       <div
@@ -57,7 +61,7 @@ const ProjectDescriptionCard = ({
         >
           {description}
         </p>
-        {items && featured && (
+        {!isMobileSmall && !isMobileMedium && items && featured && (
           <ul className="list-disc list-inside mb-3">
             {items.map((item, index) => (
               <li key={index}>{item}</li>
