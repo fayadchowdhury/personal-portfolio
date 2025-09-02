@@ -14,7 +14,7 @@ import { SkeletonUtils } from 'three-stdlib'
 
 export function Model(props) {
   const group = React.useRef()
-  const { scene, animations } = useGLTF('../public/3d/hero-model.glb')
+  const { scene, animations } = useGLTF('/3d/hero-model.glb')
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
   const { actions } = useAnimations(animations, group)
@@ -46,4 +46,4 @@ export function Model(props) {
   )
 }
 
-useGLTF.preload('../public/3d/hero-model.glb')
+useGLTF.preload('/3d/hero-model.glb')
