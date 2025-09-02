@@ -26,19 +26,24 @@ jobs:
       - name: Build the project
         run: npm run build
 
-      - name: Deploy to EC2
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-          HOST: ${{ secrets.EC2_INSTANCE_DNS }}
-          USERNAME: ${{ secrets.EC2_USER }}
-          APP_PATH: ${{ secrets.EC2_TARGET_DIRECTORY }}
-        run: |
-          echo "$SSH_PRIVATE_KEY" > key.pem
-          chmod 600 key.pem
-          ssh -o StrictHostKeyChecking=no -i key.pem $USERNAME@$HOST << EOF
-            cd $APP_PATH
-            git pull origin master
-            npm install
-            npm run build
-            pm2 restart portfolio-frontend
-          EOF
+      - name: SCP to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_INSTANCE_DNS }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "dist/*"
+          target: "/home/ubuntu/"
+
+      - name: Restart PM2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_INSTANCE_DNS }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            rm -rf /home/ubuntu/personal-portfolio-frontend-old
+            mv /home/ubuntu/personal-portfolio-frontend/ /home/ubuntu/personal-portfolio-frontend-old
+            mv /home/ubuntu/dist/ /home/ubuntu/personal-portfolio-frontend
+            pm2 restart portfolio-frontend || pm2 serve personal-portfolio-frontend 3001 --name "portfolio-frontend"
+            pm2 save
