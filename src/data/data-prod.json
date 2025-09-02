@@ -1,4 +1,18 @@
 {
+    "navBarLinks": [
+        {
+            "label": "Projects",
+            "url": "#projects"
+        },
+        {
+            "label": "Experience",
+            "url": "#experience"
+        },
+        {
+            "label": "Skills",
+            "url": "#skills"
+        }
+    ],
     "name": "Ahmad Al Fayad Chowdhury",
     "taglines": [
         {

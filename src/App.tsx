@@ -1,23 +1,24 @@
 import Hero from "./sections/Hero";
 import Intro from "./sections/Intro";
-
-// Figure out a better way to import data
-// data.json should be placed in src/data
-import data from "./data";
 import CallToAction from "./sections/CallToAction";
 import Work from "./sections/Work";
 import SectionTitle from "./components/SectionTitle";
 import Contact from "./sections/Contact";
 import Projects from "./sections/Projects";
+import NavBar from "./sections/NavBar";
+
+import data from "./data";
 
 function App() {
   return (
-    // Navbar
-
-    // Router??
-
-    // Main page
     <div>
+      {/* Navbar */}
+      <NavBar links={data.navBarLinks} />
+
+      {/* Router?? */}
+
+      {/* Main page */}
+
       {/* Hero section */}
       <Hero
         name={data.name}
@@ -26,18 +27,14 @@ function App() {
       />
       {/* Intro section */}
       <Intro intro={data.intro} />
-
       {/* CTAs section */}
       <CallToAction />
-
       {/* Work section */}
       <SectionTitle title="Experience" />
       <Work workItems={data.work} />
-
       {/* Projects section */}
       <SectionTitle title="Projects" />
       <Projects projects={data.projects} />
-
       {/*<h1>Skills</h1>
       <ul>
         <li>Skill 1</li>
@@ -57,7 +54,6 @@ function App() {
         <li>Testimonial 2</li>
         <li>Testimonial 3</li>
       </ul> */}
-
       {/* Contact section */}
       <Contact
         contactTitle={data.contact.title}
