@@ -11,7 +11,7 @@ import data from "./data";
 
 function App() {
   return (
-    <div>
+    <div className="md:mx-15">
       {/* Navbar */}
       <NavBar links={data.navBarLinks} />
 
