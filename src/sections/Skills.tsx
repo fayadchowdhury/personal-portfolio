@@ -22,7 +22,7 @@ const Skills = ({ skills }: SkillsProps) => {
           } max-sm:grid-cols-1`}
         >
           {skills.map((elem) => (
-            <div className="flex flex-col">
+            <div key={elem.type} className="flex flex-col">
               <h1 className="text-sub-header mb-2 text-center">{elem.type}</h1>
               <div className="grid grid-cols-3 items-center justify-center">
                 {elem.skills.map((skill) => (
