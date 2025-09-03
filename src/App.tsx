@@ -5,11 +5,22 @@ import Work from "./sections/Work";
 import SectionTitle from "./components/SectionTitle";
 import Contact from "./sections/Contact";
 import Projects from "./sections/Projects";
+import Skills from "./sections/Skills";
 import NavBar from "./sections/NavBar";
 
 import data from "./data";
 
 function App() {
+  const coreSkills = data.skills.coreSkills.map((item: any) => ({
+    type: item.core || item.area,
+    skills: item.skills,
+  }));
+
+  const areaSkills = data.skills.areaSkills.map((item: any) => ({
+    type: item.core || item.area,
+    skills: item.skills,
+  }));
+
   return (
     <div className="md:mx-15">
       {/* Navbar */}
@@ -35,14 +46,13 @@ function App() {
       {/* Projects section */}
       <SectionTitle title="Projects" />
       <Projects projects={data.projects} />
-      {/*<h1>Skills</h1>
-      <ul>
-        <li>Skill 1</li>
-        <li>Skill 2</li>
-        <li>Skill 3</li>
-      </ul>
 
-      <h1>Thoughts</h1>
+      {/* Skills section */}
+      <SectionTitle title="Skills" />
+      <Skills skills={coreSkills} />
+      <Skills skills={areaSkills} />
+
+      {/* <h1>Thoughts</h1>
       <ul>
         <li>Thought 1</li>
         <li>Thought 2</li>
