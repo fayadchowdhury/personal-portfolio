@@ -23,7 +23,7 @@ const ExperienceDescriptionCard = ({
   const isMobileMedium = useMediaQuery({ maxWidth: 1024 });
 
   return (
-    <div className="col-span-5 md:col-span-4 grid grid-cols-3 gap-2 p-5 m-5 rounded-lg border-1 border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black">
+    <div className="col-span-5 md:col-span-4 grid grid-cols-3 gap-10 p-5 m-5 rounded-lg border-1 border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black">
       <div className="flex items-center justify-center col-span-1">
         {iconPath && <img src={iconPath} alt="Icon" className="w-30 h-30" />}
       </div>
