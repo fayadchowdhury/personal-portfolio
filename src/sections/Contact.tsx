@@ -75,7 +75,7 @@ const Contact = ({
   };
 
   return (
-    <div
+    <section
       id="contact"
       className="max-md:flex max-md:flex-col grid grid-cols-2 justify-center md:w-full w-screen md:px-20 px-5 md:mt-30 mt-10 md:pb-15 pb-5"
     >
@@ -152,7 +152,7 @@ const Contact = ({
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 
