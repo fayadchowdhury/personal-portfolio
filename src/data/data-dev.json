@@ -127,5 +127,163 @@
             ],
             "featured": false
         }
-    ]
+    ],
+    "skills": {
+        "coreSkills": [
+            {
+                "core": "Languages",
+                "skills": [
+                    {
+                        "name": "Python",
+                        "iconPath": "/skill-icons/python.svg"
+                    },
+                    {
+                        "name": "SQL",
+                        "iconPath": "/skill-icons/sql.svg"
+                    },
+                    {
+                        "name": "HTML",
+                        "iconPath": "/skill-icons/html.svg"
+                    },
+                    {
+                        "name": "CSS",
+                        "iconPath": "/skill-icons/css.svg"
+                    },
+                    {
+                        "name": "JavaScript",
+                        "iconPath": "/skill-icons/javascript.svg"
+                    },
+                    {
+                        "name": "TypeScript",
+                        "iconPath": "/skill-icons/typescript.svg"
+                    },
+                    {
+                        "name": "Java",
+                        "iconPath": "/skill-icons/java.svg"
+                    }
+                ]
+            }
+        ],
+        "areaSkills": [
+            {
+                "area": "Web & Cloud",
+                "skills": [
+                    {
+                        "name": "Tailwind",
+                        "iconPath": "/skill-icons/tailwind.svg"
+                    },
+                    {
+                        "name": "Bootstrap",
+                        "iconPath": "/skill-icons/bootstrap.svg"
+                    },
+                    {
+                        "name": "React.js",
+                        "iconPath": "/skill-icons/reactjs.svg"
+                    },
+                    {
+                        "name": "Node.js",
+                        "iconPath": "/skill-icons/nodejs.svg"
+                    },
+                    {
+                        "name": "Express.js",
+                        "iconPath": "/skill-icons/express.svg"
+                    },
+                    {
+                        "name": "AWS",
+                        "iconPath": "/skill-icons/aws.svg"
+                    },
+                    {
+                        "name": "GCP",
+                        "iconPath": "/skill-icons/gcp.svg"
+                    },
+                    {
+                        "name": "Azure",
+                        "iconPath": "/skill-icons/azure.svg"
+                    }
+                ]
+            },
+            {
+                "area": "Data & AI",
+                "skills": [
+                    {
+                        "name": "Pandas",
+                        "iconPath": "/skill-icons/pandas.svg"
+                    },
+                    {
+                        "name": "NumPy",
+                        "iconPath": "/skill-icons/numpy.svg"
+                    },
+                    {
+                        "name": "Airflow",
+                        "iconPath": "/skill-icons/airflow.svg"
+                    },
+                    {
+                        "name": "TensorFlow",
+                        "iconPath": "/skill-icons/tensorflow.svg"
+                    },
+                    {
+                        "name": "PyTorch",
+                        "iconPath": "/skill-icons/pytorch.svg"
+                    },
+                    {
+                        "name": "HuggingFace",
+                        "iconPath": "/skill-icons/huggingface.svg"
+                    },
+                    {
+                        "name": "OpenAI",
+                        "iconPath": "/skill-icons/openai.svg"
+                    },
+                    {
+                        "name": "Seaborn",
+                        "iconPath": "/skill-icons/seaborn.svg"
+                    },
+                    {
+                        "name": "PowerBI",
+                        "iconPath": "/skill-icons/powerbi.svg"
+                    },
+                    {
+                        "name": "Tableau",
+                        "iconPath": "/skill-icons/tableau.svg"
+                    },
+                    {
+                        "name": "Looker Studio",
+                        "iconPath": "/skill-icons/looker.svg"
+                    },
+                    {
+                        "name": "PySpark",
+                        "iconPath": "/skill-icons/spark.svg"
+                    },
+                    {
+                        "name": "Kafka",
+                        "iconPath": "/skill-icons/kafka.svg"
+                    }
+                ]
+            },
+            {
+                "area": "Workflow & Orchestration",
+                "skills": [
+                    {
+                        "name": "Docker",
+                        "iconPath": "/skill-icons/docker.svg"
+                    },
+                    {
+                        "name": "Kubernetes",
+                        "iconPath": "/skill-icons/kubernetes.svg"
+                    },
+                    {
+                        "name": "Github Actions",
+                        "iconPath": "/skill-icons/github.svg"
+                    },
+                    {
+                        "name": "Terraform",
+                        "iconPath": "/skill-icons/terraform.svg"
+                    },
+                    {
+                        "name": "Helm",
+                        "iconPath": "/skill-icons/helm.svg"
+                    }
+                ]
+            }
+        ]
+    }
 }
