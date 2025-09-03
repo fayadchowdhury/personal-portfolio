@@ -7,6 +7,7 @@ import Contact from "./sections/Contact";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 import NavBar from "./sections/NavBar";
+import Testimonials from "./sections/Testimonials";
 
 import data from "./data";
 
@@ -56,14 +57,10 @@ function App() {
       <ul>
         <li>Thought 1</li>
         <li>Thought 2</li>
-      </ul>
-
-      <h1>Testimonials</h1>
-      <ul>
-        <li>Testimonial 1</li>
-        <li>Testimonial 2</li>
-        <li>Testimonial 3</li>
       </ul> */}
+
+      <SectionTitle title="Testimonials" />
+      <Testimonials testimonials={data.testimonials} />
       {/* Contact section */}
       <Contact
         contactTitle={data.contact.title}
