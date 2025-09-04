@@ -291,6 +291,7 @@
             "title": "Great Product",
             "message": "This is a fantastic product!",
             "name": "John Doe",
+            "designation": "CEO, ABC Consulting",
             "imagePath": "/testimonial-pics/john.jpg",
             "rating": 5
         },
@@ -298,6 +299,7 @@
             "title": "Excellent Service",
             "message": "I love using this service.",
             "name": "Jane Smith",
+            "designation": "Owner, DEF Bakery",
             "imagePath": "/testimonial-pics/jane.jpg",
             "rating": 4
         },
@@ -305,6 +307,7 @@
             "title": "Outstanding Support",
             "message": "The support team was very helpful.",
             "name": "Bob Johnson",
+            "designation": "CTO, GHI Tech",
             "imagePath": "/testimonial-pics/bob.jpg",
             "rating": 5
         },
@@ -312,6 +315,7 @@
             "title": "Highly Recommend",
             "message": "Highly recommend to everyone.",
             "name": "Sally Mae",
+            "designation": "Marketing Director, JKL Digital",
             "imagePath": "/testimonial-pics/sally.jpg",
             "rating": 5
         }
