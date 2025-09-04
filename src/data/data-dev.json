@@ -1,12 +1,12 @@
 {
     "navBarLinks": [
         {
-            "label": "Projects",
-            "url": "#projects"
-        },
-        {
             "label": "Experience",
             "url": "#work"
+        },
+        {
+            "label": "Projects",
+            "url": "#projects"
         },
         {
             "label": "Skills",
