@@ -24,7 +24,7 @@ const ProjectDescriptionCard = ({
   const isMobileSmall = useMediaQuery({ maxWidth: 770 });
   const isMobileMedium = useMediaQuery({ maxWidth: 1024 });
   return (
-    <div className="flex flex-col gap-2 pb-5 m-5 rounded-lg border-1 border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black">
+    <div className="flex flex-col gap-2 pb-5 m-5 card">
       <div
         className={`${
           featured ? "h-150 " : "h-40 "
@@ -41,28 +41,44 @@ const ProjectDescriptionCard = ({
       <div className="flex flex-col justify-center p-5">
         <h1
           className={`${
-            featured ? "text-sub-header" : "text-sub-header-special"
-          } font-semibold text-start mt-3 mb-3`}
+            featured
+              ? "project-card-featured-text-header"
+              : "project-card-text-header"
+          } text-start mt-3 mb-3`}
         >
           {title}
         </h1>
         <div
           className={`grid grid-cols-2 ${
-            featured ? "text-content" : "text-content-special"
+            featured
+              ? "project-card-featured-text-sub-header"
+              : "project-card-text-sub-header"
           } py-3`}
         >
           {subtitle && <h3>{subtitle}</h3>}
-          {period && <h3 className="text-end">{period}</h3>}
+          {period && (
+            <h3
+              className={`${
+                featured
+                  ? "project-card-featured-text-sub-header"
+                  : "project-card-text-sub-header"
+              } text-end`}
+            >
+              {period}
+            </h3>
+          )}
         </div>
         <p
           className={`${
-            featured ? "text-content" : "text-sm"
+            featured
+              ? "project-card-featured-text-content"
+              : "project-card-text-content"
           } text-start mb-3 py-3`}
         >
           {description}
         </p>
         {!isMobileSmall && !isMobileMedium && items && featured && (
-          <ul className="list-disc list-inside mb-3">
+          <ul className="project-card-ul mb-3">
             {items.map((item, index) => (
               <li key={index}>{item}</li>
             ))}

@@ -23,14 +23,14 @@ const FormInput = ({
         <textarea
           rows={rows}
           placeholder={placeholder}
-          className="border-1 border-gray-border-light dark:border-gray-border-dark p-2 rounded-lg"
+          className="form-input"
           {...registration}
         />
       ) : (
         <input
           type={type}
           placeholder={placeholder}
-          className="border-1 border-gray-border-light dark:border-gray-border-dark p-2 rounded-lg"
+          className="form-input"
           {...registration}
         />
       )}

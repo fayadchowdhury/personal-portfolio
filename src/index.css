@@ -88,6 +88,12 @@
     }
 }
 
+@layer utilities {
+  .list-chevron > li::marker {
+    content: ">";
+  }
+}
+
 @layer components {
   .text-header {
     @apply text-xl md:text-4xl lg:text-6xl;
@@ -103,5 +109,80 @@
   }
   .text-content-special {
     @apply text-sm md:text-sm lg:text-base;
+  }
+  .card {
+    @apply rounded-lg border border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black;
+  }
+  .form-input {
+    @apply border-1 border-gray-border-light dark:border-gray-border-dark p-2 rounded-lg;
+  }
+  .testimonial-photo {
+    @apply rounded-full w-15 h-15 border-3 border-gray-border-light dark:border-gray-border-dark object-cover
+  }
+  /* Experience card */
+  .experience-card-text-header {
+    @apply text-lg md:text-2xl lg:text-4xl font-semibold;
+  }
+  .experience-card-text-sub-header {
+    @apply text-base md:text-xl lg:text-2xl;
+  }
+  .experience-card-text-content {
+    @apply text-lg;
+  }
+  .experience-card-ul {
+    @apply list-inside;
+  }
+  .experience-card-ul > li::marker {
+    content: "\27A4  ";
+  }
+  /* Project card */
+  .project-card-text-header {
+    @apply text-base md:text-base lg:text-lg font-semibold;
+  }
+  .project-card-text-sub-header {
+    @apply text-base md:text-base lg:text-base;
+  }
+  .project-card-text-content {
+    @apply text-sm;
+  }
+  .project-card-ul {
+    @apply list-inside;
+  }
+  .project-card-ul > li::marker {
+    content: "\27A4  ";
+  }
+  /* Project card featured */
+  .project-card-featured-text-header {
+    @apply text-lg md:text-2xl lg:text-4xl font-semibold;
+  }
+  .project-card-featured-text-sub-header {
+    @apply text-base md:text-xl lg:text-2xl;
+  }
+  .project-card-featured-text-content {
+    @apply text-base;
+  }
+  /* Testimonials */
+  .testimonial-text-header {
+    @apply text-base font-semibold italic;
+  }
+  .testimonial-text-content {
+    @apply text-base;
+  }
+  .testimonial-photo {
+    @apply rounded-full w-15 h-15 border-3 border-gray-border-light dark:border-gray-border-dark object-cover;
+
+  }
+  .testimonial-text-name {
+    @apply text-sm font-semibold;
+  }
+  .testimonial-text-designation {
+    @apply text-xs font-semibold;
+  }
+  /* Skill badges */
+  .skill-badge-icon {
+    @apply w-15 sm:w-20 h-15 sm:h-20 p-3 sm:p-5 bg-mid-white dark:bg-white rounded-full;
+  }
+  .skill-badge-text {
+    @apply text-xs sm:text-sm;
   }
 }

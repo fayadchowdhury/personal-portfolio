@@ -23,21 +23,29 @@ const ExperienceDescriptionCard = ({
   const isMobileMedium = useMediaQuery({ maxWidth: 1024 });
 
   return (
-    <div className="col-span-5 md:col-span-4 grid grid-cols-3 gap-10 p-5 m-5 rounded-lg border-1 border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black">
+    <div className="col-span-5 md:col-span-4 grid grid-cols-3 gap-10 p-5 m-5 card">
       <div className="flex items-center justify-center col-span-1">
         {iconPath && <img src={iconPath} alt="Icon" className="w-30 h-30" />}
       </div>
       <div className="flex flex-col justify-center col-span-2">
-        <h1 className="text-sub-header font-semibold text-start mt-3 mb-3">
+        <h1 className="experience-card-text-header text-start mt-3 mb-3">
           {title}
         </h1>
-        <div className="grid grid-cols-2 text-content py-3">
-          {subtitle && <h3>{subtitle}</h3>}
-          {period && <h3 className="text-end">{period}</h3>}
+        <div className="grid grid-cols-2 py-3">
+          {subtitle && (
+            <h3 className="experience-card-text-sub-header">{subtitle}</h3>
+          )}
+          {period && (
+            <h3 className="experience-card-text-sub-header text-end">
+              {period}
+            </h3>
+          )}
         </div>
-        <p className="text-start mb-3 py-3">{description}</p>
+        <p className="experience-card-text-content text-start mb-3 py-3">
+          {description}
+        </p>
         {!isMobileSmall && !isMobileMedium && items && (
-          <ul className="list-disc list-inside mb-3">
+          <ul className="experience-card-ul mb-3">
             {items.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
