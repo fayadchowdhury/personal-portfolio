@@ -95,6 +95,7 @@
 }
 
 @layer components {
+  /* General */
   .text-header {
     @apply text-xl md:text-4xl lg:text-6xl;
   }
@@ -110,9 +111,33 @@
   .text-content-special {
     @apply text-sm md:text-sm lg:text-base;
   }
+  /* Layout */
   .card {
     @apply rounded-lg border border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black;
   }
+  .icon-anchor {
+    @apply flex grid-cols-2 py-2 px-4 rounded-lg gap-2 border-1 border-black dark:border-white hover:bg-black dark:hover:bg-white text-black dark:text-white hover:text-white dark:hover:text-black dark:hover:shadow-[0_0_10px_2px_theme(colors.mid-white)] hover:shadow-[0_0_10px_2px_theme(colors.mid-black)];
+  }
+  .section-title {
+    @apply dark:bg-mid-white bg-mid-black dark:text-black text-white text-center rounded-4xl px-8 py-4 text-base md:text-xl lg:text-2xl shadow-[0_0_10px_2px_theme(colors.mid-black)] dark:shadow-[0_0_10px_2px_theme(colors.mid-white)];
+  }
+  /* Navbar */
+  .navbar {
+    @apply fixed top-0 left-0 right-0 mx-5 md:mx-10 mt-3 py-3 md:py-5 z-10 flex grid-cols-3 justify-between bg-white dark:bg-black shadow-[0_0_30px_15px_theme(colors.mid-white)] dark:shadow-[0_0_30px_15px_theme(colors.mid-black)] rounded-full md:rounded-full;
+  }
+  .navbar-logo {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl font-bold pl-5 md:pl-10;
+  }
+  .navbar-menu-text {
+    @apply text-sm md:text-sm lg:text-base;
+  }
+  .navbar-menu-text > a {
+    @apply hover:underline;
+  }
+  .navbar-cta {
+    @apply py-2 px-4 rounded-full gap-2 dark:bg-mid-white bg-mid-black dark:text-black text-white text-center hover:shadow-[0_0_10px_2px_theme(colors.mid-black)] dark:hover:shadow-[0_0_10px_2px_theme(colors.mid-white)] text-base md:text-base lg:text-lg;
+  }
+  /* Forms */
   .form-input {
     @apply border-1 border-gray-border-light dark:border-gray-border-dark p-2 rounded-lg;
   }
@@ -163,7 +188,7 @@
     @apply text-base font-semibold italic;
   }
   .testimonial-text-content {
-    @apply text-base;
+    @apply text-base font-thin;
   }
   .testimonial-photo {
     @apply rounded-full w-15 h-15 border-3 border-gray-border-light dark:border-gray-border-dark object-cover;

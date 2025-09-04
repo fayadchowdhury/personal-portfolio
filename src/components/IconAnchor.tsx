@@ -8,10 +8,7 @@ interface IconAnchorProps {
 
 const IconAnchor = ({ buttonText, Icon, href }: IconAnchorProps) => {
   return (
-    <a
-      className="flex grid-cols-2 py-2 px-4 rounded-lg gap-2 border-1 border-black dark:border-white hover:bg-black dark:hover:bg-white text-black dark:text-white hover:text-white dark:hover:text-black"
-      href={href}
-    >
+    <a className="icon-anchor" href={href}>
       <span className="text-content">{buttonText}</span>
       {Icon && (
         <div className="flex items-center justify-center">
