@@ -116,9 +116,6 @@
   .form-input {
     @apply border-1 border-gray-border-light dark:border-gray-border-dark p-2 rounded-lg;
   }
-  .testimonial-photo {
-    @apply rounded-full w-15 h-15 border-3 border-gray-border-light dark:border-gray-border-dark object-cover
-  }
   /* Experience card */
   .experience-card-text-header {
     @apply text-lg md:text-2xl lg:text-4xl font-semibold;
@@ -170,7 +167,6 @@
   }
   .testimonial-photo {
     @apply rounded-full w-15 h-15 border-3 border-gray-border-light dark:border-gray-border-dark object-cover;
-
   }
   .testimonial-text-name {
     @apply text-sm font-semibold;
