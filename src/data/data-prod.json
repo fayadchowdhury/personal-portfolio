@@ -1,18 +1,23 @@
 {
-    "navBarLinks": [
-        {
-            "label": "Experience",
-            "url": "#work"
+    "navBar": {
+        "leader": {
+            "text": "fayadchowdhury_"
         },
-        {
-            "label": "Projects",
-            "url": "#projects"
-        },
-        {
-            "label": "Skills",
-            "url": "#skills"
-        }
-    ],
+        "links": [
+            {
+                "label": "Experience",
+                "url": "#work"
+            },
+            {
+                "label": "Projects",
+                "url": "#projects"
+            },
+            {
+                "label": "Skills",
+                "url": "#skills"
+            }
+        ]
+    },
     "name": "Ahmad Al Fayad Chowdhury",
     "taglines": [
         {

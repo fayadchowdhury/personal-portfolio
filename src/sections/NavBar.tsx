@@ -1,21 +1,31 @@
 import ThemeToggler from "../components/ThemeToggler";
 
+interface NavBarLeader {
+  text: string;
+  iconPath?: string;
+}
+
 interface NavBarLink {
   label: string;
   url: string;
 }
 
-interface NavBarLinks {
+interface NavBarProps {
+  leader: NavBarLeader;
   links: NavBarLink[];
 }
 
-const NavBar = ({ links }: NavBarLinks) => {
+const NavBar = ({ leader, links }: NavBarProps) => {
   return (
     <header id="navbar">
       <div className="navbar">
         <div className="flex items-center justify-start">
           <a href="#hero" className="navbar-logo">
-            fayadchowdhury
+            {leader && leader.iconPath ? (
+              <img src={leader.iconPath} />
+            ) : (
+              leader.text
+            )}
           </a>
         </div>
         <div className="flex justify-between">

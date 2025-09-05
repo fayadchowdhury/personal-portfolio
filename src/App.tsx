@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="md:mx-15">
       {/* Navbar */}
-      <NavBar links={data.navBarLinks} />
+      <NavBar leader={data.navBar.leader} links={data.navBar.links} />
 
       {/* Router?? */}
 
