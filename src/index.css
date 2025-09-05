@@ -113,7 +113,7 @@
   }
   /* Layout */
   .card {
-    @apply rounded-lg border border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black;
+    @apply rounded-lg border border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black shadow-[0_0_30px_15px_theme(colors.mid-white)] dark:shadow-[0_0_30px_15px_theme(colors.mid-black)];
   }
   .icon-anchor {
     @apply flex grid-cols-2 py-2 px-4 rounded-lg gap-2 border-1 border-black dark:border-white hover:bg-black dark:hover:bg-white text-black dark:text-white hover:text-white dark:hover:text-black dark:hover:shadow-[0_0_10px_2px_theme(colors.mid-white)] hover:shadow-[0_0_10px_2px_theme(colors.mid-black)];
@@ -204,7 +204,7 @@
   }
   /* Skill badges */
   .skill-badge-icon {
-    @apply w-15 sm:w-20 h-15 sm:h-20 p-3 sm:p-5 bg-mid-white dark:bg-white rounded-full;
+    @apply w-15 sm:w-20 h-15 sm:h-20 p-3 sm:p-5 mb-2 bg-mid-white dark:bg-white rounded-full shadow-[0_0_30px_20px_theme(colors.mid-white)] dark:shadow-[0_0_30px_20px_theme(colors.mid-black)];
   }
   .skill-badge-text {
     @apply text-xs sm:text-sm;
