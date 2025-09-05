@@ -21,7 +21,7 @@ const Hero = ({ name, taglines, heroImage }: HeroProps) => {
     <section id="hero" className="">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-25">
         {/* Left side */}
-        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
+        <header className="flex flex-col justify-center md:w-full w-screen md:px-15 px-5">
           <div className="flex flex-col gap-2">
             {/* Name */}
             {/* <h1 className="text-xl md:text-3xl lg:text-5xl font-extrabold max-md:text-center"> */}
