@@ -1,11 +1,28 @@
+import { useGSAP } from "@gsap/react";
+import { slideIn } from "./Animations";
+
 interface SkillProps {
   name: string;
   iconPath?: string;
 }
 
 const Skill = ({ name, iconPath }: SkillProps) => {
+  useGSAP(() => {
+    slideIn({
+      elem: "#skill-badge",
+      startX: -20,
+      endX: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+    });
+  });
   return (
-    <div className="flex flex-col items-center justify-center p-3">
+    <div
+      id="skill-badge"
+      className="flex flex-col items-center justify-center p-3"
+    >
       {iconPath && (
         <div className="skill-badge-icon">
           <img src={iconPath} alt={`${name} icon`} />

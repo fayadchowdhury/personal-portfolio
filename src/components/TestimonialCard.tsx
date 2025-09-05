@@ -19,7 +19,7 @@ const TestimonialCard = ({
   rating,
 }: TestimonialCardProps) => {
   return (
-    <div className="flex flex-col p-5 m-5 card">
+    <div id="testimonial-card" className="flex flex-col p-5 m-5 card">
       <h2 className="testimonial-text-header">{title}</h2>
       <p className="testimonial-text-content">{message}</p>
       <div className="flex grid-cols-2 justify-start items-center gap-2 mt-2">

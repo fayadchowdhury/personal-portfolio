@@ -1,14 +1,13 @@
-import { ComponentType } from "react";
-
 interface IconAnchorProps {
   buttonText: string;
-  Icon?: ComponentType<React.SVGProps<SVGSVGElement>>;
+  Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   href?: string;
+  onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-const IconAnchor = ({ buttonText, Icon, href }: IconAnchorProps) => {
+const IconAnchor = ({ buttonText, Icon, href, onClick }: IconAnchorProps) => {
   return (
-    <a className="icon-anchor" href={href}>
+    <a className="icon-anchor" href={href} onClick={onClick}>
       <span className="text-content">{buttonText}</span>
       {Icon && (
         <div className="flex items-center justify-center">

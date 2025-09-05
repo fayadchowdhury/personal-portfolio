@@ -2,6 +2,8 @@ import TestimonialCard from "../components/TestimonialCard";
 import PageSlider from "../components/PageSlider";
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
+import { useGSAP } from "@gsap/react";
+import { slideIn } from "../components/Animations";
 
 interface TestimonialsProps {
   testimonials: {
@@ -27,9 +29,21 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
     currentPage * testimonialsPerPage + testimonialsPerPage
   );
 
+  useGSAP(() => {
+    slideIn({
+      elem: "#testimonials",
+      startY: 20,
+      endY: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+    });
+  }, [testimonialsFocus]);
+
   return (
-    <section id="testimonials">
-      <div className="grid grid-cols-1 md:grid-cols-3">
+    <section>
+      <div id="testimonials" className="grid grid-cols-1 md:grid-cols-3">
         {testimonialsFocus.map((testimonial, index) => (
           <TestimonialCard key={index} {...testimonial} />
         ))}
@@ -42,6 +56,7 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
               (currentPage - 1 + totalTestimonialsPages) %
                 totalTestimonialsPages
             );
+            console.log(testimonialsFocus);
           }}
           onRightClick={() => {
             setCurrentPage((currentPage + 1) % totalTestimonialsPages);

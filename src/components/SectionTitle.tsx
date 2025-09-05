@@ -1,10 +1,27 @@
+import { useGSAP } from "@gsap/react";
+import { slideIn } from "./Animations";
+
 interface SectionTitleProps {
   title: string;
 }
 
 const SectionTitle = ({ title }: SectionTitleProps) => {
+  useGSAP(() => {
+    slideIn({
+      elem: "#section-title",
+      startX: -20,
+      endX: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+    });
+  });
   return (
-    <div className="flex items-center justify-center mt-10 mb-5">
+    <div
+      id="section-title"
+      className="flex items-center justify-center mt-10 mb-5"
+    >
       <div className="section-title">{title}</div>
     </div>
   );

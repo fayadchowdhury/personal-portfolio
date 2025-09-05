@@ -1,4 +1,6 @@
 import { useMediaQuery } from "react-responsive";
+import { slideIn } from "./Animations";
+import { useGSAP } from "@gsap/react";
 
 interface ExperienceDescriptionCardProps {
   iconPath?: string;
@@ -19,11 +21,38 @@ const ExperienceDescriptionCard = ({
   items,
   children,
 }: ExperienceDescriptionCardProps) => {
+  useGSAP(() => {
+    slideIn({
+      elem: "#experience-card",
+      startX: -20,
+      endX: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+    });
+  });
+
+  useGSAP(() => {
+    slideIn({
+      elem: "#experience-card-li",
+      startX: -20,
+      endX: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+    });
+  });
+
   const isMobileSmall = useMediaQuery({ maxWidth: 770 });
   const isMobileMedium = useMediaQuery({ maxWidth: 1024 });
 
   return (
-    <div className="col-span-5 md:col-span-4 grid grid-cols-3 gap-10 p-5 m-5 card">
+    <div
+      id="experience-card"
+      className="col-span-5 md:col-span-4 grid grid-cols-3 gap-10 p-5 m-5 card"
+    >
       <div className="flex items-center justify-center col-span-1">
         {iconPath && <img src={iconPath} alt="Icon" className="w-30 h-30" />}
       </div>
@@ -47,7 +76,9 @@ const ExperienceDescriptionCard = ({
         {!isMobileSmall && !isMobileMedium && items && (
           <ul className="experience-card-ul mb-3">
             {items.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li id="experience-card-li" key={index}>
+                {item}
+              </li>
             ))}
           </ul>
         )}

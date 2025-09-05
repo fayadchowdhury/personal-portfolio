@@ -1,3 +1,5 @@
+import { useGSAP } from "@gsap/react";
+import { slideIn } from "../components/Animations";
 import Skill from "../components/SkillBadge";
 
 interface SkillsProps {
@@ -11,6 +13,17 @@ interface SkillsProps {
 }
 
 const Skills = ({ skills }: SkillsProps) => {
+  useGSAP(() => {
+    slideIn({
+      elem: "#skills",
+      startX: -20,
+      endX: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+    });
+  });
   return (
     <section id="skills" className="flex flex-col items-center justify-start">
       {skills && skills.length > 0 && (

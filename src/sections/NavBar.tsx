@@ -1,3 +1,4 @@
+import { smoothScroll } from "../components/Animations";
 import ThemeToggler from "../components/ThemeToggler";
 
 interface NavBarLeader {
@@ -33,7 +34,24 @@ const NavBar = ({ leader, links }: NavBarProps) => {
             <ul className="flex grid-cols-3 items-center justify-between">
               {links.map((link, index) => (
                 <li className="navbar-menu-text px-5" key={index}>
-                  <a href={link.url}>{link.label}</a>
+                  <a
+                    href={link.url}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      smoothScroll({
+                        // scrollContainer: window,
+                        targetY:
+                          (window.document
+                            .getElementById(link.url.replace("#", ""))
+                            ?.getBoundingClientRect().top ?? 0) +
+                          window.scrollY,
+                        offsetY: 0.3 * window.innerHeight,
+                        duration: 1.2,
+                      });
+                    }}
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -43,7 +61,22 @@ const NavBar = ({ leader, links }: NavBarProps) => {
           </div>
         </div>
         <div className="flex items-center justify-end pr-5 md:pr-10">
-          <a className="navbar-cta" href="#contact">
+          <a
+            className="navbar-cta"
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              smoothScroll({
+                // scrollContainer: window,
+                targetY:
+                  (window.document
+                    .getElementById("contact")
+                    ?.getBoundingClientRect().top ?? 0) + window.scrollY,
+                offsetY: 0.3 * window.innerHeight,
+                duration: 1.2,
+              });
+            }}
+          >
             Contact
           </a>
         </div>

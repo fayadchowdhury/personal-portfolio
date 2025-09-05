@@ -1,3 +1,5 @@
+import { useGSAP } from "@gsap/react";
+import { slideIn } from "../components/Animations";
 import PageSlider from "../components/PageSlider";
 import ProjectDescriptionCard from "../components/ProjectDescriptionCard";
 import { useState } from "react";
@@ -68,11 +70,35 @@ const Projects = ({ projects }: ProjectsProps) => {
     );
   }
 
+  useGSAP(() => {
+    slideIn({
+      elem: "#featured-projects",
+      startY: 20,
+      endY: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+    });
+  }, [featuredProjectsFocus]);
+
+  useGSAP(() => {
+    slideIn({
+      elem: "#unfeatured-projects",
+      startY: 20,
+      endY: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+    });
+  }, [unfeaturedProjectsFocus]);
+
   return (
-    <section id="projects">
+    <section>
       <div className="lg:grid lg:grid-cols-5 flex flex-col">
         <div className="lg:col-span-3 flex flex-col justify-between h-full">
-          <div>
+          <div id="featured-projects">
             {featuredProjectsFocus &&
               featuredProjectsFocus.map((project, index) => (
                 <ProjectDescriptionCard key={index} {...project} />
@@ -98,19 +124,28 @@ const Projects = ({ projects }: ProjectsProps) => {
         </div>
         <div className="lg:col-span-2 flex flex-col justify-between h-full">
           <div className="lg:grid lg:grid-cols-2 flex flex-row items-center justify-center">
-            <div className="md:grid md:grid-cols-2 flex flex-col lg:hidden">
+            <div
+              id="unfeatured-projects"
+              className="md:grid md:grid-cols-2 flex flex-col lg:hidden"
+            >
               {unfeaturedProjectsFocus &&
                 unfeaturedProjectsFocus.map((project, index) => (
                   <ProjectDescriptionCard key={index} {...project} />
                 ))}
             </div>
-            <div className="lg:col-span-1 lg:flex lg:flex-col hidden">
+            <div
+              id="unfeatured-projects"
+              className="lg:col-span-1 lg:flex lg:flex-col hidden"
+            >
               {unfeaturedProjectsLeftCol &&
                 unfeaturedProjectsLeftCol.map((project, index) => (
                   <ProjectDescriptionCard key={index} {...project} />
                 ))}
             </div>
-            <div className="lg:col-span-1 lg:flex lg:flex-col hidden">
+            <div
+              id="unfeatured-projects"
+              className="lg:col-span-1 lg:flex lg:flex-col hidden"
+            >
               {unfeaturedProjectsRightCol &&
                 unfeaturedProjectsRightCol.map((project, index) => (
                   <ProjectDescriptionCard key={index} {...project} />

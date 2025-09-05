@@ -3,6 +3,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import FormInput from "../components/FormInput";
+import { useGSAP } from "@gsap/react";
+import { slideIn } from "../components/Animations";
 
 interface ContactFormProps {
   contactTitle: string;
@@ -73,7 +75,17 @@ const Contact = ({
       setIsSubmitting(false);
     }
   };
-
+  useGSAP(() => {
+    slideIn({
+      elem: "#contact",
+      startX: -20,
+      endX: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+    });
+  });
   return (
     <section
       id="contact"
