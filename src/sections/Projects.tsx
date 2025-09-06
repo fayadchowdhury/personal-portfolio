@@ -104,7 +104,7 @@ const Projects = ({ projects }: ProjectsProps) => {
   }, [currentUnfeaturedProjectsPage]);
 
   return (
-    <section>
+    <section id="projects">
       <div className="lg:grid lg:grid-cols-5 flex flex-col">
         <div className="lg:col-span-3 flex flex-col justify-between h-full">
           <div id="featured-projects" ref={featuredContainerRef}>
