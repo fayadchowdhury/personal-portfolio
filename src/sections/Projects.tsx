@@ -1,9 +1,9 @@
 import { useGSAP } from "@gsap/react";
-import { slideIn } from "../components/Animations";
 import PageSlider from "../components/PageSlider";
 import ProjectDescriptionCard from "../components/ProjectDescriptionCard";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import { slideIn } from "../components/Animations";
 
 interface ProjectsProps {
   projects: {
@@ -18,6 +18,9 @@ interface ProjectsProps {
 }
 
 const Projects = ({ projects }: ProjectsProps) => {
+  const featuredContainerRef = useRef<HTMLDivElement>(null);
+  const unfeaturedContainerRef = useRef<HTMLDivElement>(null);
+
   const featuredProjects = projects.filter((project) => project.featured);
 
   const featuredProjectsPerPage = 1;
@@ -70,35 +73,41 @@ const Projects = ({ projects }: ProjectsProps) => {
     );
   }
 
+  // Animate featured when page changes
   useGSAP(() => {
-    slideIn({
-      elem: "#featured-projects",
-      startY: 20,
-      endY: 0,
-      startOpacity: 0,
-      endOpacity: 1,
-      duration: 1.2,
-      stagger: 0.2,
-    });
-  }, [featuredProjectsFocus]);
+    if (featuredContainerRef.current) {
+      slideIn({
+        elem: featuredContainerRef.current.querySelectorAll("#project-card"),
+        startY: 40,
+        endY: 0,
+        startOpacity: 0,
+        endOpacity: 1,
+        duration: 0.6,
+        stagger: 0.15,
+      });
+    }
+  }, [currentFeaturedProjectsPage]);
 
+  // Animate unfeatured when page changes
   useGSAP(() => {
-    slideIn({
-      elem: "#unfeatured-projects",
-      startY: 20,
-      endY: 0,
-      startOpacity: 0,
-      endOpacity: 1,
-      duration: 1.2,
-      stagger: 0.2,
-    });
-  }, [unfeaturedProjectsFocus]);
+    if (unfeaturedContainerRef.current) {
+      slideIn({
+        elem: unfeaturedContainerRef.current.querySelectorAll("#project-card"),
+        startY: 40,
+        endY: 0,
+        startOpacity: 0,
+        endOpacity: 1,
+        duration: 0.6,
+        stagger: 0.15,
+      });
+    }
+  }, [currentUnfeaturedProjectsPage]);
 
   return (
     <section>
       <div className="lg:grid lg:grid-cols-5 flex flex-col">
         <div className="lg:col-span-3 flex flex-col justify-between h-full">
-          <div id="featured-projects">
+          <div id="featured-projects" ref={featuredContainerRef}>
             {featuredProjectsFocus &&
               featuredProjectsFocus.map((project, index) => (
                 <ProjectDescriptionCard key={index} {...project} />
@@ -123,7 +132,10 @@ const Projects = ({ projects }: ProjectsProps) => {
           </div>
         </div>
         <div className="lg:col-span-2 flex flex-col justify-between h-full">
-          <div className="lg:grid lg:grid-cols-2 flex flex-row items-center justify-center">
+          <div
+            ref={unfeaturedContainerRef}
+            className="lg:grid lg:grid-cols-2 flex flex-row items-center justify-center"
+          >
             <div
               id="unfeatured-projects"
               className="md:grid md:grid-cols-2 flex flex-col lg:hidden"

@@ -1,6 +1,4 @@
-import { useGSAP } from "@gsap/react";
 import { useMediaQuery } from "react-responsive";
-import { slideIn } from "./Animations";
 
 interface ProjectDescriptionCardProps {
   picPath?: string;
@@ -23,30 +21,6 @@ const ProjectDescriptionCard = ({
   featured,
   children,
 }: ProjectDescriptionCardProps) => {
-  useGSAP(() => {
-    slideIn({
-      elem: "#project-card",
-      startX: -20,
-      endX: 0,
-      startOpacity: 0,
-      endOpacity: 1,
-      duration: 1.2,
-      stagger: 0.2,
-    });
-  });
-
-  useGSAP(() => {
-    slideIn({
-      elem: "#project-card-li",
-      startX: -20,
-      endX: 0,
-      startOpacity: 0,
-      endOpacity: 1,
-      duration: 1.2,
-      stagger: 0.2,
-    });
-  });
-
   const isMobileSmall = useMediaQuery({ maxWidth: 770 });
   const isMobileMedium = useMediaQuery({ maxWidth: 1024 });
   return (

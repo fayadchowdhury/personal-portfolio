@@ -121,7 +121,111 @@
         },
         {
             "picPath": "/project-pics/spark-docker.png",
-            "title": "Custom Spark Docker Images",
+            "title": "Custom Spark Docker Images 1",
+            "subtitle": "To run SparkOnK8s and as regular master-worker container deployments",
+            "period": "2025 - Present",
+            "description": "Building custom Docker images for SparkOnK8s and regular Spark master-worker deployments on homelab cluster",
+            "items": [
+                "Custom JARs to connect with Minio",
+                "Optimized Dockerfiles for SparkOnK8s",
+                "Docker Compose to set up 1 master and 2 workers"
+            ],
+            "featured": false
+        },
+        {
+            "picPath": "/project-pics/spark-docker.png",
+            "title": "Custom Spark Docker Images 2",
+            "subtitle": "To run SparkOnK8s and as regular master-worker container deployments",
+            "period": "2025 - Present",
+            "description": "Building custom Docker images for SparkOnK8s and regular Spark master-worker deployments on homelab cluster",
+            "items": [
+                "Custom JARs to connect with Minio",
+                "Optimized Dockerfiles for SparkOnK8s",
+                "Docker Compose to set up 1 master and 2 workers"
+            ],
+            "featured": false
+        },
+        {
+            "picPath": "/project-pics/spark-docker.png",
+            "title": "Custom Spark Docker Images 3",
+            "subtitle": "To run SparkOnK8s and as regular master-worker container deployments",
+            "period": "2025 - Present",
+            "description": "Building custom Docker images for SparkOnK8s and regular Spark master-worker deployments on homelab cluster",
+            "items": [
+                "Custom JARs to connect with Minio",
+                "Optimized Dockerfiles for SparkOnK8s",
+                "Docker Compose to set up 1 master and 2 workers"
+            ],
+            "featured": false
+        },
+        {
+            "picPath": "/project-pics/spark-docker.png",
+            "title": "Custom Spark Docker Images 4",
+            "subtitle": "To run SparkOnK8s and as regular master-worker container deployments",
+            "period": "2025 - Present",
+            "description": "Building custom Docker images for SparkOnK8s and regular Spark master-worker deployments on homelab cluster",
+            "items": [
+                "Custom JARs to connect with Minio",
+                "Optimized Dockerfiles for SparkOnK8s",
+                "Docker Compose to set up 1 master and 2 workers"
+            ],
+            "featured": false
+        },
+        {
+            "picPath": "/project-pics/spark-docker.png",
+            "title": "Custom Spark Docker Images 5",
+            "subtitle": "To run SparkOnK8s and as regular master-worker container deployments",
+            "period": "2025 - Present",
+            "description": "Building custom Docker images for SparkOnK8s and regular Spark master-worker deployments on homelab cluster",
+            "items": [
+                "Custom JARs to connect with Minio",
+                "Optimized Dockerfiles for SparkOnK8s",
+                "Docker Compose to set up 1 master and 2 workers"
+            ],
+            "featured": false
+        },
+        {
+            "picPath": "/project-pics/spark-docker.png",
+            "title": "Custom Spark Docker Images 6",
+            "subtitle": "To run SparkOnK8s and as regular master-worker container deployments",
+            "period": "2025 - Present",
+            "description": "Building custom Docker images for SparkOnK8s and regular Spark master-worker deployments on homelab cluster",
+            "items": [
+                "Custom JARs to connect with Minio",
+                "Optimized Dockerfiles for SparkOnK8s",
+                "Docker Compose to set up 1 master and 2 workers"
+            ],
+            "featured": false
+        },
+        {
+            "picPath": "/project-pics/spark-docker.png",
+            "title": "Custom Spark Docker Images 7",
+            "subtitle": "To run SparkOnK8s and as regular master-worker container deployments",
+            "period": "2025 - Present",
+            "description": "Building custom Docker images for SparkOnK8s and regular Spark master-worker deployments on homelab cluster",
+            "items": [
+                "Custom JARs to connect with Minio",
+                "Optimized Dockerfiles for SparkOnK8s",
+                "Docker Compose to set up 1 master and 2 workers"
+            ],
+            "featured": false
+        },
+        {
+            "picPath": "/project-pics/spark-docker.png",
+            "title": "Custom Spark Docker Images 8",
+            "subtitle": "To run SparkOnK8s and as regular master-worker container deployments",
+            "period": "2025 - Present",
+            "description": "Building custom Docker images for SparkOnK8s and regular Spark master-worker deployments on homelab cluster",
+            "items": [
+                "Custom JARs to connect with Minio",
+                "Optimized Dockerfiles for SparkOnK8s",
+                "Docker Compose to set up 1 master and 2 workers"
+            ],
+            "featured": false
+        },
+        {
+            "picPath": "/project-pics/spark-docker.png",
+            "title": "Custom Spark Docker Images 9",
             "subtitle": "To run SparkOnK8s and as regular master-worker container deployments",
             "period": "2025 - Present",
             "description": "Building custom Docker images for SparkOnK8s and regular Spark master-worker deployments on homelab cluster",

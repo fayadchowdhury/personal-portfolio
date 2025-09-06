@@ -4,7 +4,7 @@ import { ScrollToPlugin } from "gsap/all";
 gsap.registerPlugin(ScrollToPlugin);
 
 interface SlideInOptions {
-  elem?: HTMLElement | string | null;
+  elem?: HTMLElement | string | NodeListOf<Element> | Element[] | null;
   startX?: number | null;
   endX?: number | null;
   startY?: number | null;
