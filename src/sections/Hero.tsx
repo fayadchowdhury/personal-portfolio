@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import { slideIn } from "../components/Animations";
+import { scrambleText, slideIn } from "../components/Animations";
 import HeroModel from "../components/HeroModel";
 
 interface Tagline {
@@ -30,6 +30,15 @@ const Hero = ({ name, taglines, heroImage }: HeroProps) => {
       stagger: 0.2,
     });
   });
+  useGSAP(() => {
+    scrambleText({
+      elem: "#name",
+      text: name,
+      scrambleChars: "0011",
+      duration: 5,
+      repeat: 0,
+    });
+  });
   return (
     <section id="hero" className="">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-25">
@@ -38,7 +47,10 @@ const Hero = ({ name, taglines, heroImage }: HeroProps) => {
           <div className="flex flex-col gap-2">
             {/* Name */}
             {/* <h1 className="text-xl md:text-3xl lg:text-5xl font-extrabold max-md:text-center"> */}
-            <h1 className="text-header font-extrabold max-md:text-center">
+            <h1
+              id="name"
+              className="text-header font-extrabold max-md:text-center"
+            >
               {name}.
             </h1>
             {/* Taglines */}
