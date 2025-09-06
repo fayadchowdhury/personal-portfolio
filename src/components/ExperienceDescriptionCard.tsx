@@ -28,8 +28,8 @@ const ExperienceDescriptionCard = ({
       endX: 0,
       startOpacity: 0,
       endOpacity: 1,
-      duration: 1.2,
-      stagger: 0.2,
+      duration: 1,
+      stagger: 0.1,
     });
   });
 
@@ -40,8 +40,8 @@ const ExperienceDescriptionCard = ({
       endX: 0,
       startOpacity: 0,
       endOpacity: 1,
-      duration: 1.2,
-      stagger: 0.2,
+      duration: 0.8,
+      stagger: 0.1,
     });
   });
 

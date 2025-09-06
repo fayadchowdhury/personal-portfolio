@@ -14,8 +14,8 @@ const Skill = ({ name, iconPath }: SkillProps) => {
       endX: 0,
       startOpacity: 0,
       endOpacity: 1,
-      duration: 1.2,
-      stagger: 0.2,
+      duration: 0.5,
+      stagger: 0.05,
     });
   });
   return (

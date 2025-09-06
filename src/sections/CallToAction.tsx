@@ -1,4 +1,5 @@
-import { smoothScroll } from "../components/Animations";
+import { useGSAP } from "@gsap/react";
+import { slideIn, smoothScroll } from "../components/Animations";
 import IconAnchor from "../components/IconAnchor";
 import {
   BeakerIcon,
@@ -7,6 +8,17 @@ import {
 } from "@heroicons/react/24/outline"; // Adjust the import path as necessary
 
 const CallToAction = () => {
+  useGSAP(() => {
+    slideIn({
+      elem: "#call-to-action",
+      startX: -20,
+      endX: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 0.5,
+      stagger: 0.05,
+    });
+  });
   return (
     <section id="call-to-action">
       {/* <div className="flex flex-col items-center justify-center"> */}

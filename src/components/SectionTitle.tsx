@@ -13,8 +13,8 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
       endX: 0,
       startOpacity: 0,
       endOpacity: 1,
-      duration: 1.2,
-      stagger: 0.2,
+      duration: 1,
+      stagger: 0.1,
     });
   });
   return (

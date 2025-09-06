@@ -1,3 +1,5 @@
+import { useGSAP } from "@gsap/react";
+import { slideIn } from "../components/Animations";
 import HeroModel from "../components/HeroModel";
 
 interface Tagline {
@@ -17,6 +19,17 @@ interface HeroProps {
 }
 
 const Hero = ({ name, taglines, heroImage }: HeroProps) => {
+  useGSAP(() => {
+    slideIn({
+      elem: "#hero",
+      startY: -20,
+      endY: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+    });
+  });
   return (
     <section id="hero" className="">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-25">
