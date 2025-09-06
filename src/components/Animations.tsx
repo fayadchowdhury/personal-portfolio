@@ -1,7 +1,8 @@
 import gsap from "gsap";
-import { ScrollToPlugin } from "gsap/all";
+import { ScrollToPlugin, ScrambleTextPlugin } from "gsap/all";
 
 gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrambleTextPlugin);
 
 interface SlideInOptions {
   elem?: HTMLElement | string | NodeListOf<Element> | Element[] | null;
@@ -22,6 +23,19 @@ interface SmoothScrollOptions {
   offsetX?: number | undefined;
   offsetY?: number | undefined;
   duration?: number | undefined;
+}
+
+interface ScrambleTextOptions {
+  elem?: HTMLElement | string | NodeListOf<Element> | Element[] | null;
+  text?: string | null;
+  scrambleChars?: string | null;
+  duration?: number | null;
+  repeat?: number | null;
+}
+
+interface BlinkOptions {
+  elem?: HTMLElement | string | NodeListOf<Element> | Element[] | null;
+  duration?: number | null;
 }
 
 export const slideIn = ({
@@ -71,5 +85,38 @@ export const smoothScroll = ({
     },
     duration: duration,
     ease: "power2.inOut",
+  });
+};
+
+export const scrambleText = ({
+  elem,
+  text,
+  scrambleChars,
+  duration,
+  repeat,
+}: ScrambleTextOptions) => {
+  if (!elem) return;
+
+  gsap.to(elem as gsap.TweenTarget, {
+    duration: duration ?? 0,
+    scrambleText: {
+      text: text ?? "",
+      chars: scrambleChars ?? "",
+      revealDelay: 0.5,
+      speed: 0.3,
+      newClass: "myClass",
+    },
+    repeat: repeat ?? 0,
+  });
+};
+
+export const blink = ({ elem, duration }: BlinkOptions) => {
+  if (!elem) return;
+  gsap.to(elem, {
+    opacity: 0,
+    duration: duration ?? 0,
+    repeat: -1,
+    yoyo: true,
+    ease: "steps(1)",
   });
 };
