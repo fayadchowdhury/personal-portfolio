@@ -1,8 +1,10 @@
-import { smoothScroll } from "../components/Animations";
+import { useGSAP } from "@gsap/react";
+import { blink, scrambleText, smoothScroll } from "../components/Animations";
 import ThemeToggler from "../components/ThemeToggler";
 
 interface NavBarLeader {
   text: string;
+  specialChar?: string;
   iconPath?: string;
 }
 
@@ -17,6 +19,21 @@ interface NavBarProps {
 }
 
 const NavBar = ({ leader, links }: NavBarProps) => {
+  useGSAP(() => {
+    scrambleText({
+      elem: "#leader-text",
+      text: leader.text,
+      scrambleChars: "_",
+      duration: 5,
+      repeat: 0,
+    });
+  });
+  useGSAP(() => {
+    blink({
+      elem: "#leader-char",
+      duration: 0.5,
+    });
+  });
   return (
     <header id="navbar">
       <div className="navbar">
@@ -25,7 +42,12 @@ const NavBar = ({ leader, links }: NavBarProps) => {
             {leader && leader.iconPath ? (
               <img src={leader.iconPath} />
             ) : (
-              leader.text
+              <div>
+                <span id="leader-text">{leader.text}</span>
+                {leader.specialChar && (
+                  <span id="leader-char">{leader.specialChar}</span>
+                )}
+              </div>
             )}
           </a>
         </div>

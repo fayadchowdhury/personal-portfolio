@@ -1,7 +1,8 @@
 {
     "navBar": {
         "leader": {
-            "text": "fayadchowdhury_"
+            "text": "fayadchowdhury",
+            "specialChar": "_"
         },
         "links": [
             {
