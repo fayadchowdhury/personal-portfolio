@@ -1,4 +1,5 @@
 {
+    "baseUrl": "http://localhost:6996/api/",
     "navBar": {
         "leader": {
             "text": "fayadchowdhury",

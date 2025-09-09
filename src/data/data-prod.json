@@ -1,4 +1,5 @@
 {
+    "baseUrl": "https://fayadchowdhury.com/api/",
     "navBar": {
         "leader": {
             "text": "fayadchowdhury",
