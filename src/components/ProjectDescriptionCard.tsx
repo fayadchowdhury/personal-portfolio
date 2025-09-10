@@ -1,6 +1,7 @@
 import { useMediaQuery } from "react-responsive";
 import { useRef } from "react";
 import ProjectModal from "./ProjectModal";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 interface ProjectDescriptionCardProps {
   picPath?: string;
@@ -47,6 +48,15 @@ const ProjectDescriptionCard = ({
           period={period}
           url={url}
           readme={readme}
+        />
+        <XMarkIcon
+          className="absolute top-5 right-5 z-1 flex items-center justify-center w-5 h-5 bg-mid-white dark:bg-mid-black dark:text-white text-black text-center rounded-4xl text-base shadow-[0_0_10px_2px_theme(colors.mid-black)] dark:shadow-[0_0_10px_2px_theme(colors.mid-white)]"
+          onClick={(event) => {
+            if (dialogRef) {
+              dialogRef.current?.close();
+              event.stopPropagation();
+            }
+          }}
         />
       </dialog>
       <div
