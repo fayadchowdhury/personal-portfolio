@@ -9,15 +9,34 @@ import Skills from "./sections/Skills";
 import NavBar from "./sections/NavBar";
 import Testimonials from "./sections/Testimonials";
 
-import data from "./data";
+import { data, getAllProjects } from "./data";
+import { useEffect, useState } from "react";
 
 function App() {
-  const coreSkills = data.skills.coreSkills.map((item: any) => ({
+  const [currData, setCurrData] = useState<typeof data>(data);
+
+  useEffect(() => {
+    async function apiCalls() {
+      const apiProjects = await getAllProjects(
+        data.baseUrl + "projects/getAll"
+      );
+      if (apiProjects) {
+        setCurrData({
+          ...data,
+          projects: apiProjects,
+        });
+        console.log(`Set currData to ${data}`);
+      }
+    }
+    apiCalls();
+  }, []);
+
+  const coreSkills = currData.skills.coreSkills.map((item: any) => ({
     type: item.core || item.area,
     skills: item.skills,
   }));
 
-  const areaSkills = data.skills.areaSkills.map((item: any) => ({
+  const areaSkills = currData.skills.areaSkills.map((item: any) => ({
     type: item.core || item.area,
     skills: item.skills,
   }));
@@ -25,7 +44,7 @@ function App() {
   return (
     <div className="md:mx-15">
       {/* Navbar */}
-      <NavBar leader={data.navBar.leader} links={data.navBar.links} />
+      <NavBar leader={currData.navBar.leader} links={currData.navBar.links} />
 
       {/* Router?? */}
 
@@ -33,20 +52,20 @@ function App() {
 
       {/* Hero section */}
       <Hero
-        name={data.name}
-        taglines={data.taglines}
+        name={currData.name}
+        taglines={currData.taglines}
         // heroImage={data.heroImage}
       />
       {/* Intro section */}
-      <Intro intro={data.intro} />
+      <Intro intro={currData.intro} />
       {/* CTAs section */}
       <CallToAction />
       {/* Work section */}
       <SectionTitle title="Experience" />
-      <Work workItems={data.work} />
+      <Work workItems={currData.work} />
       {/* Projects section */}
       <SectionTitle title="Projects" />
-      <Projects projects={data.projects} />
+      <Projects projects={currData.projects} />
 
       {/* Skills section */}
       <SectionTitle title="Skills" />
@@ -60,12 +79,12 @@ function App() {
       </ul> */}
 
       <SectionTitle title="Testimonials" />
-      <Testimonials testimonials={data.testimonials} />
+      <Testimonials testimonials={currData.testimonials} />
       {/* Contact section */}
       <Contact
-        contactTitle={data.contact.title}
-        contactDescription={data.contact.description}
-        contactFormPostUrl={data.contact.formPostUrl}
+        contactTitle={currData.contact.title}
+        contactDescription={currData.contact.description}
+        contactFormPostUrl={currData.contact.formPostUrl}
       />
     </div>
 

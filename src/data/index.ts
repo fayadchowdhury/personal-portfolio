@@ -1,9 +1,9 @@
 import data_dev from "./data-dev.json";
 import data_prod from "./data-prod.json"
-import { getAllProjects } from "./dataApi";
+export * from "./dataApi";
 
 const mode: string = import.meta.env.VITE_ENV;
-let data: typeof data_dev | typeof data_prod;
+export let data: typeof data_dev | typeof data_prod;
 
 if (mode === "dev-json") {
     data = data_dev;
@@ -13,10 +13,4 @@ if (mode === "dev-json") {
     data = data_dev;
 }
 
-const baseUrl: string = data["baseUrl"];
-const apiProjects = await getAllProjects(baseUrl + "projects/getAll");
-if (apiProjects) {
-    data["projects"] = apiProjects;
-}
-
-export default data;
+export const baseUrl: string = data["baseUrl"];
