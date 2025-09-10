@@ -2,13 +2,13 @@ import { extractTldr, readmeToPlainText, splitByDashAndCapitalize } from "../uti
 
 export async function getAllProjects(url: string) {
     try {
-        let projects: {picPath: string, title: string, subtitle: string, period: string, description: string, items: string[], featured: boolean}[] = [];
+        let projects: {picPath: string, title: string, subtitle: string, period: string, description: string, items: string[], featured: boolean, url: string, readme: string}[] = [];
         const res = await fetch(url);
         if ( res.status == 200 ) {
             const data = await res.json();
             const projectsDb = data["projects"];
             for (const elem of projectsDb) {
-                let project: {picPath: string, title: string, subtitle: string, period: string, description: string, items: string[], featured: boolean, url: string} = 
+                let project: {picPath: string, title: string, subtitle: string, period: string, description: string, items: string[], featured: boolean, url: string, readme: string} = 
                 {
                     "picPath": "",
                     "title": "",
@@ -17,7 +17,8 @@ export async function getAllProjects(url: string) {
                     "description": "",
                     "items": [],
                     "featured": false,
-                    "url": ""
+                    "url": "",
+                    "readme": ""
                 }
                 project.picPath = elem.imageUrl;
                 project.title = splitByDashAndCapitalize(elem.repo);
@@ -32,6 +33,7 @@ export async function getAllProjects(url: string) {
                 project.items = extractTldr(elem.readme).map((feature) => feature.trim().slice(2));
                 project.featured = Array.from(elem.topics).indexOf("featured") == -1 ? false : true;
                 project.url = `https://github.com/${elem.owner}/${elem.repo}`; // Hard code the Github bit
+                project.readme = elem.readme ?? "";
                 projects.push(project);
             }
             return projects;

@@ -14,6 +14,8 @@ interface ProjectsProps {
     description: string;
     items: string[];
     featured?: boolean;
+    url?: string;
+    readme?: string;
   }[];
 }
 
