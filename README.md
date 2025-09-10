@@ -8,4 +8,8 @@ Github Actions takes care of my CI/CD process including deployment to AWS EC2.
 
 There will be a blogs section soon and more CMS-like control in the future.
 
-WIP!
+### TL;DR
+- React, tailwind, three.js. GSAP
+- Easily editable with data stores and/or API
+- CI/CD via Github Actions to deploy to AWS EC2
+- WIP!
