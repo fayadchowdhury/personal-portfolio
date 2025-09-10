@@ -1,13 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
     --color-black: #000000;
     --color-mid-black: #141414;
+    --color-code-black: #474747;
     --color-white: #FFFFFF;
     --color-mid-white: #F7F7F7;
+    --color-code-white: #e8e8e8;
+    --color-code-text-light: #00bf8c;
+    --color-code-text-dark: #00bf8c;
     --color-gray-border-dark: #1e2939;
     --color-gray-border-light: #d1d5dc;
     --color-disabled-bg-light: #4e4948;
@@ -30,6 +35,9 @@
     }
     body {
         @apply bg-white dark:bg-black text-black dark:text-white font-mona-sans;
+    }
+    dialog {
+        @apply text-black dark:text-white font-mona-sans fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl p-0 backdrop:bg-black/80 border border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black shadow-[0_0_30px_15px_theme(colors.mid-white)] dark:shadow-[0_0_30px_15px_theme(colors.mid-black)];
     }
 }
 
@@ -208,5 +216,45 @@
   }
   .skill-badge-text {
     @apply text-xs sm:text-sm;
+  }
+  /* Project modal */
+  .project-modal-text-header {
+    @apply text-lg md:text-2xl lg:text-4xl font-semibold;
+  }
+  .project-modal-text-sub-header {
+    @apply text-base md:text-xl lg:text-2xl;
+  }
+  .project-modal-text-content {
+    @apply text-base break-words;
+  }
+  /* Project model text-content hacks; definitely better ways to do this */
+  .project-modal-text-content h1 {
+    @apply my-2 text-3xl font-bold;
+  }
+  .project-modal-text-content h2 {
+    @apply my-2 text-2xl font-semibold;
+  }
+  .project-modal-text-content h3 {
+    @apply my-1 text-lg font-semibold;
+  }
+  .project-modal-text-content h4,
+  .project-modal-text-content h5,
+  .project-modal-text-content h6 {
+    @apply my-1 text-base font-semibold;
+  }
+  .project-modal-text-content p {
+    @apply my-2 leading-relaxed;
+  }
+  .project-modal-text-content ul {
+    @apply mb-2 px-3 list-disc list-inside;
+  }
+  .project-modal-text-content ol {
+    @apply my-2 px-3 list-decimal list-inside;
+  }
+  .project-modal-text-content code {
+    @apply dark:bg-code-black bg-code-white dark:text-code-text-dark text-code-text-light px-1 rounded;
+  }
+  .project-modal-text-content pre {
+    @apply dark:bg-code-black bg-code-white p-3 rounded overflow-x-auto;
   }
 }

@@ -1,4 +1,6 @@
 import { useMediaQuery } from "react-responsive";
+import { useRef } from "react";
+import ProjectModal from "./ProjectModal";
 
 interface ProjectDescriptionCardProps {
   picPath?: string;
@@ -10,6 +12,7 @@ interface ProjectDescriptionCardProps {
   featured?: boolean;
   children?: React.ReactNode[];
   url?: string;
+  readme?: string;
 }
 
 const ProjectDescriptionCard = ({
@@ -22,11 +25,30 @@ const ProjectDescriptionCard = ({
   featured,
   children,
   url,
+  readme,
 }: ProjectDescriptionCardProps) => {
   const isMobileSmall = useMediaQuery({ maxWidth: 770 });
   const isMobileMedium = useMediaQuery({ maxWidth: 1024 });
+
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
+
   return (
-    <div id="project-card" className="flex flex-col gap-2 pb-5 m-5 card">
+    <div
+      id="project-card"
+      className="flex flex-col gap-2 pb-5 m-5 card"
+      onClick={() => {
+        dialogRef && dialogRef.current?.showModal();
+      }}
+    >
+      <dialog ref={dialogRef}>
+        <ProjectModal
+          picPath={picPath}
+          title={title}
+          period={period}
+          url={url}
+          readme={readme}
+        />
+      </dialog>
       <div
         className={`${
           featured ? "h-150 " : "h-40 "
@@ -48,7 +70,7 @@ const ProjectDescriptionCard = ({
               : "project-card-text-header"
           } text-start mt-3 mb-3`}
         >
-          <a href={url}>{title}</a>
+          {title}
         </h1>
         <div
           className={`grid grid-cols-2 ${
