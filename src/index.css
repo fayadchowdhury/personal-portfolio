@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -123,6 +122,9 @@
   .card {
     @apply rounded-lg border border-gray-border-light dark:border-gray-border-dark bg-mid-white dark:bg-mid-black shadow-[0_0_30px_15px_theme(colors.mid-white)] dark:shadow-[0_0_30px_15px_theme(colors.mid-black)];
   }
+  .modal {
+    @apply flex flex-col gap-2 p-10 w-[75vw] h-[75vh] overflow-auto
+  }
   .icon-anchor {
     @apply flex grid-cols-2 py-2 px-4 rounded-lg gap-2 border-1 border-black dark:border-white hover:bg-black dark:hover:bg-white text-black dark:text-white hover:text-white dark:hover:text-black dark:hover:shadow-[0_0_10px_2px_theme(colors.mid-white)] hover:shadow-[0_0_10px_2px_theme(colors.mid-black)];
   }
@@ -219,28 +221,28 @@
   }
   /* Project modal */
   .project-modal-text-header {
-    @apply text-lg md:text-2xl lg:text-4xl font-semibold;
+    @apply text-lg md:text-2xl lg:text-4xl font-bold;
   }
   .project-modal-text-sub-header {
-    @apply text-base md:text-xl lg:text-2xl;
+    @apply text-base md:text-xl lg:text-2xl font-semibold;
   }
   .project-modal-text-content {
     @apply text-base break-words;
   }
   /* Project model text-content hacks; definitely better ways to do this */
   .project-modal-text-content h1 {
-    @apply my-2 text-3xl font-bold;
+    @apply my-2 text-lg md:text-2xl lg:text-4xl font-semibold;
   }
   .project-modal-text-content h2 {
-    @apply my-2 text-2xl font-semibold;
+    @apply my-2 text-base md:text-xl lg:text-2xl font-semibold;
   }
   .project-modal-text-content h3 {
-    @apply my-1 text-lg font-semibold;
+    @apply my-1 text-base md:text-lg lg:text-xl font-semibold;
   }
   .project-modal-text-content h4,
   .project-modal-text-content h5,
   .project-modal-text-content h6 {
-    @apply my-1 text-base font-semibold;
+    @apply my-1 text-base lg:text-lg font-semibold;
   }
   .project-modal-text-content p {
     @apply my-2 leading-relaxed;
