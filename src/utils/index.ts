@@ -1,1 +1,2 @@
-export * from "./markdown";
+export * from "./markdownUtils";
+export * from "./stringUtils";
