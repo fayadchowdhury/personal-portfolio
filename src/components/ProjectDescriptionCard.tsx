@@ -9,6 +9,7 @@ interface ProjectDescriptionCardProps {
   items?: string[];
   featured?: boolean;
   children?: React.ReactNode[];
+  url?: string;
 }
 
 const ProjectDescriptionCard = ({
@@ -20,6 +21,7 @@ const ProjectDescriptionCard = ({
   items,
   featured,
   children,
+  url,
 }: ProjectDescriptionCardProps) => {
   const isMobileSmall = useMediaQuery({ maxWidth: 770 });
   const isMobileMedium = useMediaQuery({ maxWidth: 1024 });
@@ -46,7 +48,7 @@ const ProjectDescriptionCard = ({
               : "project-card-text-header"
           } text-start mt-3 mb-3`}
         >
-          {title}
+          <a href={url}>{title}</a>
         </h1>
         <div
           className={`grid grid-cols-2 ${

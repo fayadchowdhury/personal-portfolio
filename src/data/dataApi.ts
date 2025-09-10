@@ -1,4 +1,4 @@
-import { readmeToPlainText } from "../utils";
+import { extractTldr, readmeToPlainText, splitByDashAndCapitalize } from "../utils";
 
 export async function getAllProjects(url: string) {
     try {
@@ -8,7 +8,7 @@ export async function getAllProjects(url: string) {
             const data = await res.json();
             const projectsDb = data["projects"];
             for (const elem of projectsDb) {
-                let project: {picPath: string, title: string, subtitle: string, period: string, description: string, items: string[], featured: boolean} = 
+                let project: {picPath: string, title: string, subtitle: string, period: string, description: string, items: string[], featured: boolean, url: string} = 
                 {
                     "picPath": "",
                     "title": "",
@@ -16,20 +16,22 @@ export async function getAllProjects(url: string) {
                     "period": "",
                     "description": "",
                     "items": [],
-                    "featured": false
+                    "featured": false,
+                    "url": ""
                 }
                 project.picPath = elem.imageUrl;
-                project.title = elem.repo;
+                project.title = splitByDashAndCapitalize(elem.repo);
                 const subtitleText: string = elem.description ?? "";
-                project.subtitle = subtitleText.length > 30 ? subtitleText.slice(0,30) + "..." : subtitleText;
+                project.subtitle = subtitleText.length > 70 ? subtitleText.slice(0,70) + "..." : subtitleText;
                 const projectCreatedAtYear: Number = new Date(elem.projectCreatedAt).getFullYear();
                 const projectUpdatedAtYear: Number = new Date(elem.projectUpdatedAt).getFullYear();
                 const periodText = `${projectCreatedAtYear} - ${projectUpdatedAtYear == new Date().getFullYear() ? "Present" : projectUpdatedAtYear}`;
                 project.period = periodText;
                 const readmeText: string = readmeToPlainText(elem.readme ?? "");
-                project.description = readmeText.length > 50 ? readmeText.slice(0,50) + "..." : readmeText;
-                project.items = ["abc", "def"];
+                project.description = readmeText.length > 100 ? readmeText.slice(0,100) + "..." : readmeText;
+                project.items = extractTldr(elem.readme).map((feature) => feature.trim());
                 project.featured = Array.from(elem.topics).indexOf("featured") == -1 ? false : true;
+                project.url = `https://github.com/${elem.owner}/${elem.repo}`; // Hard code the Github bit
                 projects.push(project);
             }
             return projects;
