@@ -29,7 +29,7 @@ export async function getAllProjects(url: string) {
                 project.period = periodText;
                 const readmeText: string = readmeToPlainText(elem.readme ?? "");
                 project.description = readmeText.length > 100 ? readmeText.slice(0,100) + "..." : readmeText;
-                project.items = extractTldr(elem.readme).map((feature) => feature.trim());
+                project.items = extractTldr(elem.readme).map((feature) => feature.trim().slice(2));
                 project.featured = Array.from(elem.topics).indexOf("featured") == -1 ? false : true;
                 project.url = `https://github.com/${elem.owner}/${elem.repo}`; // Hard code the Github bit
                 projects.push(project);
