@@ -25,7 +25,6 @@ function App() {
           ...data,
           projects: apiProjects,
         });
-        console.log(`Set currData to ${data}`);
       }
     }
     apiCalls();
