@@ -1,9 +1,9 @@
 import removeMarkdown from "remove-markdown";
 import { marked } from "marked";
 
-const markdownToHtmlString = async function (md: string) : Promise<string> {
-  return await marked.parse(md);
-}
+// const markdownToHtmlString = async function (md: string) : Promise<string> {
+//   return await marked.parse(md);
+// }
 
 const markdownToPlainTextString = function (md: string) : string {
   return removeMarkdown(md, {
