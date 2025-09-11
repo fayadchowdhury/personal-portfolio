@@ -39,6 +39,16 @@
             "icon": "/hero-tagline-icons/ai.svg"            
         }
     ],
+    "socials": [
+        {
+            "icon": "/hero-social-icons/github.svg",
+            "link": "https://github.com/fayadchowdhury"
+        },
+        {
+            "icon": "/hero-social-icons/linkedin.svg",
+            "link": "https://www.linkedin.com/in/ahmad-al-fayad-chowdhury/"
+        }
+    ],
     "heroImage": {
         "src": "/maintenance.svg",
         "alt": "This is where the hero image is meant to be",
