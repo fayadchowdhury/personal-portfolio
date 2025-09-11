@@ -12,6 +12,7 @@ import Testimonials from "./sections/Testimonials";
 import {
   data,
   getAllProjects,
+  getAllWorks,
   getContactFormData,
   getIntroData,
   getNameData,
@@ -27,7 +28,8 @@ function App() {
   useEffect(() => {
     async function apiCalls() {
       const [
-        apiProjects,
+        projectsData,
+        workData,
         navbarData,
         taglinesData,
         socialsData,
@@ -36,6 +38,7 @@ function App() {
         contactFormData,
       ] = await Promise.all([
         getAllProjects(data.baseUrl + "projects/getAll"),
+        getAllWorks(data.baseUrl + "works/getAll"),
         getNavbarData(data.baseUrl + "navbar/getData"),
         getTaglinesData(data.baseUrl + "taglines/getData"),
         getSocialsData(data.baseUrl + "socials/getData"),
@@ -47,7 +50,8 @@ function App() {
       setCurrData((prev) => {
         return {
           ...prev,
-          ...(apiProjects ? { projects: apiProjects } : {}),
+          ...(projectsData ? { projects: projectsData } : {}),
+          ...(workData ? { work: workData } : {}),
           ...(navbarData ? { navBar: navbarData } : {}),
           ...(taglinesData ? { taglines: taglinesData } : {}),
           ...(socialsData ? { socials: socialsData } : {}),

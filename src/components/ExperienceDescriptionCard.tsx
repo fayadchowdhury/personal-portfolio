@@ -31,7 +31,7 @@ const ExperienceDescriptionCard = ({
       duration: 1,
       stagger: 0.1,
     });
-  });
+  }, [iconPath, title, subtitle, period, description, items, children]);
 
   useGSAP(() => {
     slideIn({
@@ -43,7 +43,7 @@ const ExperienceDescriptionCard = ({
       duration: 0.8,
       stagger: 0.1,
     });
-  });
+  }, [iconPath, title, subtitle, period, description, items, children]);
 
   const isMobileSmall = useMediaQuery({ maxWidth: 770 });
   const isMobileMedium = useMediaQuery({ maxWidth: 1024 });

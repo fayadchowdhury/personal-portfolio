@@ -43,6 +43,40 @@ export async function getAllProjects(url: string) {
     }
 };
 
+export async function getAllWorks(url: string) {
+    try {
+        let works: {order: number, iconPath: string, title: string, subtitle: string, period: string, description: string, items: string[]}[] = [];
+        const res = await fetch(url);
+        if ( res.status == 200 ) {
+            const data = await res.json();
+            const worksDb = data["works"];
+            for (const elem of worksDb) {
+                let work: {order: number, iconPath: string, title: string, subtitle: string, period: string, description: string, items: string[]} = 
+                {
+                    "order": 1,
+                    "iconPath": "",
+                    "title": "",
+                    "subtitle": "",
+                    "period": "",
+                    "description": "",
+                    "items": []
+                }
+                work.order = Number(elem.order);
+                work.iconPath = elem.iconPath;
+                work.title = elem.title;
+                work.subtitle = elem.subtitle;
+                work.period = elem.period;
+                work.description = elem.description;
+                work.items = elem.items;
+                works.push(work);
+            }
+            return works;
+        }
+    } catch (err: unknown) {
+        console.log(`Error fetching works: ${err}`);
+    }
+};
+
 export async function getNavbarData(url: string) {
     try {
         let navbar: { leader: { text: string, specialChar: string}, links: { label: string, url: string }[] };
