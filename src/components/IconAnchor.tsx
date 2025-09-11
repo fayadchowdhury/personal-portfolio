@@ -2,7 +2,7 @@ interface IconAnchorProps {
   buttonText: string;
   Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   href?: string;
-  onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 const IconAnchor = ({ buttonText, Icon, href, onClick }: IconAnchorProps) => {
