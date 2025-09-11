@@ -16,7 +16,7 @@ const Intro = ({ intro }: IntroProps) => {
       duration: 1.2,
       stagger: 0.2,
     });
-  });
+  }, [intro]);
   return (
     <section id="intro" className="">
       <div className="text-center mt-5 w-full py-3 px-3 md:py-10 md:px-10">
