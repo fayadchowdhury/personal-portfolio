@@ -109,6 +109,68 @@ export async function getAllTestimonials(url: string) {
     }
 };
 
+export async function getSkillsByType(url: string, type: string) {
+    try {
+        const reqBody = { "type": type };
+        let skills: {name: string, iconPath: string, type: string, subType: string }[] = [];
+        const res = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(reqBody),
+        });
+        if ( res.status == 200 ) {
+            const data = await res.json();
+            const skillsDb = data["skills"];
+            for (const elem of skillsDb) {
+                let skill: {name: string, iconPath: string, type: string, subType: string } = 
+                {
+                    "name": "",
+                    "iconPath": "",
+                    "type": "",
+                    "subType": ""
+                }
+                skill.name = elem.name;
+                skill.iconPath = elem.iconPath;
+                skill.type = elem.type;
+                skill.subType = elem.subType;
+                skills.push(skill);
+            }
+            if ( skills.length > 0 ){
+                const groupedSkills = Object.entries(
+                    skills.reduce((acc: Record<string, { name: string; iconPath: string }[]>, skill) => 
+                    {
+                        if (!acc[skill.subType]) {
+                            acc[skill.subType] = [];
+                        }
+                        acc[skill.subType].push({
+                            name: skill.name,
+                            iconPath: skill.iconPath,
+                        });
+                        return acc;
+                    },
+                    {}
+                    )
+                ).map(([subType, skills]) => 
+                    (
+                        {
+                            subType,
+                            skills,
+                        }
+                    )
+                );
+                return groupedSkills;
+            }
+            else {
+                console.log(`Error grouping skills into core and area skills`);
+            }
+        }
+    } catch (err: unknown) {
+        console.log(`Error fetching skills: ${err}`);
+    }
+};
+
 export async function getNavbarData(url: string) {
     try {
         let navbar: { leader: { text: string, specialChar: string}, links: { label: string, url: string }[] };

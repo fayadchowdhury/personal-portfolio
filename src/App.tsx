@@ -14,6 +14,7 @@ import {
   getAllProjects,
   getAllWorks,
   getAllTestimonials,
+  getSkillsByType,
   getContactFormData,
   getIntroData,
   getNameData,
@@ -32,6 +33,8 @@ function App() {
         projectsData,
         workData,
         testimonialsData,
+        coreSkillsData,
+        areaSkillsData,
         navbarData,
         taglinesData,
         socialsData,
@@ -42,6 +45,8 @@ function App() {
         getAllProjects(data.baseUrl + "projects/getAll"),
         getAllWorks(data.baseUrl + "works/getAll"),
         getAllTestimonials(data.baseUrl + "testimonials/getAll"),
+        getSkillsByType(data.baseUrl + "skills/getByType", "core"),
+        getSkillsByType(data.baseUrl + "skills/getByType", "area"),
         getNavbarData(data.baseUrl + "navbar/getData"),
         getTaglinesData(data.baseUrl + "taglines/getData"),
         getSocialsData(data.baseUrl + "socials/getData"),
@@ -56,6 +61,11 @@ function App() {
           ...(projectsData ? { projects: projectsData } : {}),
           ...(workData ? { work: workData } : {}),
           ...(testimonialsData ? { testimonials: testimonialsData } : {}),
+          skills: {
+            ...prev.skills,
+            ...(coreSkillsData ? { coreSkills: coreSkillsData } : {}),
+            ...(areaSkillsData ? { areaSkills: areaSkillsData } : {}),
+          },
           ...(navbarData ? { navBar: navbarData } : {}),
           ...(taglinesData ? { taglines: taglinesData } : {}),
           ...(socialsData ? { socials: socialsData } : {}),
@@ -72,12 +82,12 @@ function App() {
   }, []);
 
   const coreSkills = currData.skills.coreSkills.map((item: any) => ({
-    type: item.core || item.area,
+    type: item.subType,
     skills: item.skills,
   }));
 
   const areaSkills = currData.skills.areaSkills.map((item: any) => ({
-    type: item.core || item.area,
+    type: item.subType,
     skills: item.skills,
   }));
 
