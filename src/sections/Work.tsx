@@ -13,7 +13,6 @@ interface WorkProps {
 }
 
 const Work = ({ workItems }: WorkProps) => {
-  console.log(workItems);
   return (
     <section id="work">
       {/* <div className="grid grid-cols-1 md:grid-cols-5"> */}
