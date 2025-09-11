@@ -13,6 +13,7 @@ import {
   data,
   getAllProjects,
   getAllWorks,
+  getAllTestimonials,
   getContactFormData,
   getIntroData,
   getNameData,
@@ -30,6 +31,7 @@ function App() {
       const [
         projectsData,
         workData,
+        testimonialsData,
         navbarData,
         taglinesData,
         socialsData,
@@ -39,6 +41,7 @@ function App() {
       ] = await Promise.all([
         getAllProjects(data.baseUrl + "projects/getAll"),
         getAllWorks(data.baseUrl + "works/getAll"),
+        getAllTestimonials(data.baseUrl + "testimonials/getAll"),
         getNavbarData(data.baseUrl + "navbar/getData"),
         getTaglinesData(data.baseUrl + "taglines/getData"),
         getSocialsData(data.baseUrl + "socials/getData"),
@@ -52,6 +55,7 @@ function App() {
           ...prev,
           ...(projectsData ? { projects: projectsData } : {}),
           ...(workData ? { work: workData } : {}),
+          ...(testimonialsData ? { testimonials: testimonialsData } : {}),
           ...(navbarData ? { navBar: navbarData } : {}),
           ...(taglinesData ? { taglines: taglinesData } : {}),
           ...(socialsData ? { socials: socialsData } : {}),

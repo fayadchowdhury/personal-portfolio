@@ -77,6 +77,38 @@ export async function getAllWorks(url: string) {
     }
 };
 
+export async function getAllTestimonials(url: string) {
+    try {
+        let testimonials: {title: string, message: string, name: string, designation: string, imagePath: string, rating: number}[] = [];
+        const res = await fetch(url);
+        if ( res.status == 200 ) {
+            const data = await res.json();
+            const testimonialsDb = data["testimonials"];
+            for (const elem of testimonialsDb) {
+                let testimonial: {title: string, message: string, name: string, designation: string, imagePath: string, rating: number} = 
+                {
+                    "title": "",
+                    "message": "",
+                    "name": "",
+                    "designation": "",
+                    "imagePath": "",
+                    "rating": 0
+                }
+                testimonial.title = elem.title;
+                testimonial.message = elem.message;
+                testimonial.name = elem.name;
+                testimonial.designation = elem.designation;
+                testimonial.imagePath = elem.imagePath;
+                testimonial.rating = Number(elem.rating);
+                testimonials.push(testimonial);
+            }
+            return testimonials;
+        }
+    } catch (err: unknown) {
+        console.log(`Error fetching testimonials: ${err}`);
+    }
+};
+
 export async function getNavbarData(url: string) {
     try {
         let navbar: { leader: { text: string, specialChar: string}, links: { label: string, url: string }[] };
