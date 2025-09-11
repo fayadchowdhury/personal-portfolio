@@ -255,7 +255,7 @@
     "skills": {
         "coreSkills": [
             {
-                "core": "Languages",
+                "subType": "Languages",
                 "skills": [
                     {
                         "name": "Python",
@@ -290,7 +290,7 @@
         ],
         "areaSkills": [
             {
-                "area": "Web & Cloud",
+                "subType": "Web & Cloud",
                 "skills": [
                     {
                         "name": "Tailwind",
@@ -327,7 +327,7 @@
                 ]
             },
             {
-                "area": "Data & AI",
+                "subType": "Data & AI",
                 "skills": [
                     {
                         "name": "Pandas",
@@ -384,7 +384,7 @@
                 ]
             },
             {
-                "area": "DevOps & Infra",
+                "subType": "DevOps & Infra",
                 "skills": [
                     {
                         "name": "Docker",
