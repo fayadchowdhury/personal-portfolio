@@ -53,6 +53,7 @@ function App() {
       <Hero
         name={currData.name}
         taglines={currData.taglines}
+        socialIcons={currData.socials}
         // heroImage={data.heroImage}
       />
       {/* Intro section */}

@@ -2,6 +2,11 @@ import { useGSAP } from "@gsap/react";
 import { scrambleText, slideIn } from "../components/Animations";
 import HeroModel from "../components/HeroModel";
 
+interface SocialIcon {
+  icon: string;
+  link: string;
+}
+
 interface Tagline {
   text: string;
   icon: string;
@@ -15,13 +20,25 @@ interface HeroImage {
 interface HeroProps {
   name: string;
   taglines: Tagline[];
+  socialIcons?: SocialIcon[];
   heroImage?: HeroImage;
 }
 
-const Hero = ({ name, taglines, heroImage }: HeroProps) => {
+const Hero = ({ name, taglines, heroImage, socialIcons }: HeroProps) => {
   useGSAP(() => {
     slideIn({
       elem: "#hero",
+      startY: -20,
+      endY: 0,
+      startOpacity: 0,
+      endOpacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+    });
+  });
+  useGSAP(() => {
+    slideIn({
+      elem: "#socials",
       startY: -20,
       endY: 0,
       startOpacity: 0,
@@ -70,6 +87,25 @@ const Hero = ({ name, taglines, heroImage }: HeroProps) => {
                   /> */}
                 </div>
               ))}
+            </div>
+            <div className="flex max-md:justify-center">
+              <div
+                id="socials"
+                className="grid grid-cols-2 gap-5 items-center max-md:justify-items-center"
+              >
+                {socialIcons &&
+                  socialIcons.map((socialIcon, index) => (
+                    <div className="flex" key={index}>
+                      <a href={socialIcon.link}>
+                        <img
+                          src={socialIcon.icon}
+                          alt={socialIcon.link}
+                          className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 justify-center"
+                        />
+                      </a>
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
         </header>
