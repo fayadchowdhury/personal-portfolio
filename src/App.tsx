@@ -9,7 +9,7 @@ import Skills from "./sections/Skills";
 import NavBar from "./sections/NavBar";
 import Testimonials from "./sections/Testimonials";
 
-import { data, getAllProjects } from "./data";
+import { data, getAllProjects, getNavbarData } from "./data";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -17,15 +17,20 @@ function App() {
 
   useEffect(() => {
     async function apiCalls() {
-      const apiProjects = await getAllProjects(
-        data.baseUrl + "projects/getAll"
-      );
-      if (apiProjects) {
-        setCurrData({
-          ...data,
-          projects: apiProjects,
-        });
-      }
+      const [apiProjects, navbarData] = await Promise.all([
+        getAllProjects(data.baseUrl + "projects/getAll"),
+        getNavbarData(data.baseUrl + "navbar/getData"),
+      ]);
+
+      setCurrData((prev) => {
+        console.log(prev.navBar, navbarData, prev.navBar === navbarData);
+
+        return {
+          ...prev,
+          ...(apiProjects ? { projects: apiProjects } : {}),
+          ...(navbarData ? { navBar: { ...navbarData } } : {}),
+        };
+      });
     }
     apiCalls();
   }, []);

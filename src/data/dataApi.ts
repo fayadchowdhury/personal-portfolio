@@ -42,3 +42,18 @@ export async function getAllProjects(url: string) {
         console.log(`Error fetching projects: ${err}`);
     }
 };
+
+export async function getNavbarData(url: string) {
+    try {
+        let navbar: { leader: { text: string, specialChar: string}, links: { label: string, url: string }[] };
+        const res = await fetch(url);
+        if ( res.status == 200 ) {
+            const data = await res.json();
+            navbar = data;
+            console.log(`Navbar data in dataApi: ${navbar.leader.text}`);
+            return navbar;
+        }
+    } catch (err: unknown) {
+        console.log(`Error fetching navbar data: ${err}`);
+    }
+};

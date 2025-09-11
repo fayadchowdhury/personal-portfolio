@@ -27,13 +27,14 @@ const NavBar = ({ leader, links }: NavBarProps) => {
       duration: 5,
       repeat: 0,
     });
-  });
+  }, [leader.text, leader.specialChar]);
   useGSAP(() => {
     blink({
       elem: "#leader-char",
       duration: 0.5,
     });
-  });
+  }, [leader.text, leader.specialChar]);
+  console.log("NavBar render", leader, links);
   return (
     <header id="navbar">
       <div className="navbar">
