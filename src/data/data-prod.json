@@ -58,6 +58,7 @@
     "intro": "Hi, I’m Fayad — a data-focused software engineer exploring the intersections of machine learning, systems, and homelabbing.",
     "work": [
         {
+            "order": 1,
             "iconPath": "/work-icons/sfu.svg",
             "title": "Simon Fraser University",
             "subtitle": "Graduate Teaching Assistant",
@@ -71,6 +72,7 @@
             ]
         },
         {
+            "order": 2,
             "iconPath": "/work-icons/klue.svg",
             "title": "Klue Labs Inc.",
             "subtitle": "Data Analyst",
@@ -83,6 +85,7 @@
             ]
         },
         {
+            "order": 3,
             "iconPath": "/work-icons/banglalink.svg",
             "title": "Banglalink Digital Communications Ltd.",
             "subtitle": "Data Engineer",
