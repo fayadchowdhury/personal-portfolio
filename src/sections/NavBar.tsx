@@ -34,7 +34,6 @@ const NavBar = ({ leader, links }: NavBarProps) => {
       duration: 0.5,
     });
   }, [leader.text, leader.specialChar]);
-  console.log("NavBar render", leader, links);
   return (
     <header id="navbar">
       <div className="navbar">

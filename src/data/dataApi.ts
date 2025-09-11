@@ -50,7 +50,6 @@ export async function getNavbarData(url: string) {
         if ( res.status == 200 ) {
             const data = await res.json();
             navbar = data;
-            console.log(`Navbar data in dataApi: ${navbar.leader.text}`);
             return navbar;
         }
     } catch (err: unknown) {

@@ -23,8 +23,6 @@ function App() {
       ]);
 
       setCurrData((prev) => {
-        console.log(prev.navBar, navbarData, prev.navBar === navbarData);
-
         return {
           ...prev,
           ...(apiProjects ? { projects: apiProjects } : {}),
