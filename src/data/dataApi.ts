@@ -95,6 +95,34 @@ export async function getNameData(url: string) {
             return name;
         }
     } catch (err: unknown) {
-        console.log(`Error fetching socials data: ${err}`);
+        console.log(`Error fetching name data: ${err}`);
+    }
+};
+
+export async function getIntroData(url: string) {
+    try {
+        let intro: string;
+        const res = await fetch(url);
+        if ( res.status == 200 ) {
+            const data = await res.json();
+            intro = data["intro"];
+            return intro;
+        }
+    } catch (err: unknown) {
+        console.log(`Error fetching intro data: ${err}`);
+    }
+};
+
+export async function getContactFormData(url: string) {
+    try {
+        let contactForm: { title: string, description: string };
+        const res = await fetch(url);
+        if ( res.status == 200 ) {
+            const data = await res.json();
+            contactForm = data["contactForm"];
+            return contactForm;
+        }
+    } catch (err: unknown) {
+        console.log(`Error fetching contact form data: ${err}`);
     }
 };

@@ -85,7 +85,8 @@ const Contact = ({
       duration: 1.2,
       stagger: 0.2,
     });
-  });
+  }, [contactTitle, contactDescription, contactFormPostUrl]);
+
   return (
     <section
       id="contact"

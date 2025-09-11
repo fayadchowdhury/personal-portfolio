@@ -12,6 +12,8 @@ import Testimonials from "./sections/Testimonials";
 import {
   data,
   getAllProjects,
+  getContactFormData,
+  getIntroData,
   getNameData,
   getNavbarData,
   getSocialsData,
@@ -24,14 +26,23 @@ function App() {
 
   useEffect(() => {
     async function apiCalls() {
-      const [apiProjects, navbarData, taglinesData, socialsData, nameData] =
-        await Promise.all([
-          getAllProjects(data.baseUrl + "projects/getAll"),
-          getNavbarData(data.baseUrl + "navbar/getData"),
-          getTaglinesData(data.baseUrl + "taglines/getData"),
-          getSocialsData(data.baseUrl + "socials/getData"),
-          getNameData(data.baseUrl + "name/getData"),
-        ]);
+      const [
+        apiProjects,
+        navbarData,
+        taglinesData,
+        socialsData,
+        nameData,
+        introData,
+        contactFormData,
+      ] = await Promise.all([
+        getAllProjects(data.baseUrl + "projects/getAll"),
+        getNavbarData(data.baseUrl + "navbar/getData"),
+        getTaglinesData(data.baseUrl + "taglines/getData"),
+        getSocialsData(data.baseUrl + "socials/getData"),
+        getNameData(data.baseUrl + "name/getData"),
+        getIntroData(data.baseUrl + "intro/getData"),
+        getContactFormData(data.baseUrl + "contactForm/getData"),
+      ]);
 
       setCurrData((prev) => {
         return {
@@ -41,6 +52,11 @@ function App() {
           ...(taglinesData ? { taglines: taglinesData } : {}),
           ...(socialsData ? { socials: socialsData } : {}),
           ...(nameData ? { name: nameData } : {}),
+          ...(introData ? { intro: introData } : {}),
+          contact: {
+            ...prev.contact,
+            ...(contactFormData ?? {}),
+          },
         };
       });
     }
