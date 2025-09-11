@@ -43,10 +43,28 @@
 /* ChatGPT animations */
 .tagline-carousel {
     position: relative;
-    height: 6em; /* enough to fit your content */
+    height: 2em;
     overflow: hidden;
 }
-  
+
+@media (min-width: 640px) {
+  .tagline-carousel {
+    height: 2em; /* sm */
+  }
+}
+
+@media (min-width: 768px) {
+  .tagline-carousel {
+    height: 4em; /* md */
+  }
+}
+
+@media (min-width: 1024px) {
+  .tagline-carousel {
+    height: 6em; /* lg */
+  }
+}
+
 .tagline {
     position: absolute;
     top: 0;
