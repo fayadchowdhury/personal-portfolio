@@ -9,7 +9,14 @@ import Skills from "./sections/Skills";
 import NavBar from "./sections/NavBar";
 import Testimonials from "./sections/Testimonials";
 
-import { data, getAllProjects, getNavbarData } from "./data";
+import {
+  data,
+  getAllProjects,
+  getNameData,
+  getNavbarData,
+  getSocialsData,
+  getTaglinesData,
+} from "./data";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -17,16 +24,23 @@ function App() {
 
   useEffect(() => {
     async function apiCalls() {
-      const [apiProjects, navbarData] = await Promise.all([
-        getAllProjects(data.baseUrl + "projects/getAll"),
-        getNavbarData(data.baseUrl + "navbar/getData"),
-      ]);
+      const [apiProjects, navbarData, taglinesData, socialsData, nameData] =
+        await Promise.all([
+          getAllProjects(data.baseUrl + "projects/getAll"),
+          getNavbarData(data.baseUrl + "navbar/getData"),
+          getTaglinesData(data.baseUrl + "taglines/getData"),
+          getSocialsData(data.baseUrl + "socials/getData"),
+          getNameData(data.baseUrl + "name/getData"),
+        ]);
 
       setCurrData((prev) => {
         return {
           ...prev,
           ...(apiProjects ? { projects: apiProjects } : {}),
-          ...(navbarData ? { navBar: { ...navbarData } } : {}),
+          ...(navbarData ? { navBar: navbarData } : {}),
+          ...(taglinesData ? { taglines: taglinesData } : {}),
+          ...(socialsData ? { socials: socialsData } : {}),
+          ...(nameData ? { name: nameData } : {}),
         };
       });
     }

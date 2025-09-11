@@ -35,7 +35,7 @@ const Hero = ({ name, taglines, heroImage, socialIcons }: HeroProps) => {
       duration: 1.2,
       stagger: 0.2,
     });
-  });
+  }, [name, taglines, heroImage, socialIcons]);
   useGSAP(() => {
     slideIn({
       elem: "#socials",
@@ -46,7 +46,7 @@ const Hero = ({ name, taglines, heroImage, socialIcons }: HeroProps) => {
       duration: 1.2,
       stagger: 0.2,
     });
-  });
+  }, [socialIcons]);
   useGSAP(() => {
     scrambleText({
       elem: "#name",
@@ -55,7 +55,7 @@ const Hero = ({ name, taglines, heroImage, socialIcons }: HeroProps) => {
       duration: 5,
       repeat: 0,
     });
-  });
+  }, [name]);
   return (
     <section id="hero" className="">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-25">

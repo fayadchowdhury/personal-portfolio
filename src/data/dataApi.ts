@@ -49,10 +49,52 @@ export async function getNavbarData(url: string) {
         const res = await fetch(url);
         if ( res.status == 200 ) {
             const data = await res.json();
-            navbar = data;
+            navbar = data["navbar"];
             return navbar;
         }
     } catch (err: unknown) {
         console.log(`Error fetching navbar data: ${err}`);
+    }
+};
+
+export async function getTaglinesData(url: string) {
+    try {
+        let taglines: { text: string, icon: string }[];
+        const res = await fetch(url);
+        if ( res.status == 200 ) {
+            const data = await res.json();
+            taglines = data["taglines"];
+            return taglines;
+        }
+    } catch (err: unknown) {
+        console.log(`Error fetching taglines data: ${err}`);
+    }
+};
+
+export async function getSocialsData(url: string) {
+    try {
+        let socials: { icon: string, link: string }[];
+        const res = await fetch(url);
+        if ( res.status == 200 ) {
+            const data = await res.json();
+            socials = data["socials"];
+            return socials;
+        }
+    } catch (err: unknown) {
+        console.log(`Error fetching socials data: ${err}`);
+    }
+};
+
+export async function getNameData(url: string) {
+    try {
+        let name: string;
+        const res = await fetch(url);
+        if ( res.status == 200 ) {
+            const data = await res.json();
+            name = data["name"];
+            return name;
+        }
+    } catch (err: unknown) {
+        console.log(`Error fetching socials data: ${err}`);
     }
 };
