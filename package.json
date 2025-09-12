@@ -9,7 +9,8 @@
     "dev-api": "VITE_ENV=dev-api vite",
     "build-api": "VITE_ENV=prod-api tsc -b && VITE_ENV=prod-api vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
